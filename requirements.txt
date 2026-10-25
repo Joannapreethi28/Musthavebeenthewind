@@ -1,0 +1,10 @@
+numpy
+pandas
+scipy
+matplotlib
+# torch: for the RTX 5060 (Blackwell) install a CUDA 12.8+ build, e.g.
+#   pip install torch --index-url https://download.pytorch.org/whl/cu128
+# then verify: python -c "import torch; print(torch.cuda.is_available())"  (CPU also works at this size)
+torch
+# only for the screenshot step:
+playwright
