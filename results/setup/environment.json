@@ -1,0 +1,54 @@
+{
+  "checked_at_utc": "2026-10-25T14:06:34.875655+00:00",
+  "status": "passed",
+  "scope": "Environment check only; synthetic inputs, no scientific data or forecast scores.",
+  "python": "3.13.15",
+  "platform": "Windows",
+  "machine": "AMD64",
+  "project_venv": true,
+  "git": {
+    "branch": "joanna",
+    "commit": "597083f92f6de69fbb08e82cafac115e27ad91a1",
+    "author_name": "Joannapreethi28",
+    "author_email_configured": true
+  },
+  "packages": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "torch": "2.11.0+cpu",
+    "playwright": "1.64.1"
+  },
+  "device": {
+    "selected": "cpu",
+    "cuda_available": false,
+    "torch_cuda_build": null,
+    "cpu_threads": 4
+  },
+  "smoke_check": {
+    "seed": 0,
+    "input_shape": [
+      8,
+      72,
+      6
+    ],
+    "output_shape": [
+      8,
+      1
+    ],
+    "parameter_count": 51777,
+    "synthetic_mse": 1.4296537637710571,
+    "gradient_norm_before_clip": 0.4488592743873596,
+    "elapsed_seconds": 0.020893900014925748,
+    "checks": {
+      "output_shape_correct": true,
+      "loss_finite": true,
+      "gradients_finite": true,
+      "gradient_nonzero": true,
+      "optimizer_changed_weights": true,
+      "updated_parameters_finite": true,
+      "parameter_count_correct": true
+    }
+  }
+}

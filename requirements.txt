@@ -2,9 +2,10 @@ numpy
 pandas
 scipy
 matplotlib
-# torch: for the RTX 5060 (Blackwell) install a CUDA 12.8+ build, e.g.
-#   pip install torch --index-url https://download.pytorch.org/whl/cu128
-# then verify: python -c "import torch; print(torch.cuda.is_available())"  (CPU also works at this size)
-torch
+# Install this first from the official CPU index on the current Intel-only machine:
+# python -m pip install torch==2.11.0 --index-url https://download.pytorch.org/whl/cpu
+# scripts/setup_environment.py performs installation and a real LSTM backward check.
+# A CUDA build on another machine needs its own GPU/driver compatibility check.
+torch==2.11.0
 # only for the screenshot step:
 playwright
