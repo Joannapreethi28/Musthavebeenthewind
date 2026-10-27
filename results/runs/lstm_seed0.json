@@ -1,0 +1,65 @@
+{
+  "contract": "e-only-hour-end-v1",
+  "seed": 0,
+  "config": {
+    "model": "lstm",
+    "hidden": 64,
+    "dropout": 0.2,
+    "layers": 2,
+    "window": 72,
+    "horizon": 12,
+    "batch_size": 256,
+    "max_epochs": 60,
+    "patience": 8,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "gradient_clip": 1.0,
+    "shuffle": false,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "representative_seed": 0
+  },
+  "normalization": {
+    "mean": [
+      2.1964873677831527,
+      410.1036253173222,
+      -0.08540341670707008,
+      -13.37903202806377
+    ],
+    "std": [
+      1.0538341923446728,
+      88.35447861712048,
+      3.1889259580009655,
+      19.379996208465823
+    ]
+  },
+  "device": "cpu",
+  "torch_version": "2.11.0+cpu",
+  "numpy_version": "2.5.4",
+  "provenance": {
+    "git_commit": "b4c409b4e160f632d1e60b48dc88eb6dbc4bf5b5",
+    "source_sha256": {
+      "baselines.py": "5da1ec0929aa232e5f246c3d32abeba317056ca2853b4747f5f557fcdab99d33",
+      "build_dataset.py": "798469dd75c801621185c1a3d081c466cc2975b5ff69d4154403077ef6af0f56",
+      "common.py": "35440a8b9a03a35bc27b1bed16282a92bd8e2b3390c24d8b462b5c79b07f5eef",
+      "data_validation.py": "058f275719cb266a85a8f2803d616afad934227884d071a4c560467651b2ad62",
+      "download_data.py": "5d857e67c9ab471ee3b229dd4abe338e23f12566ff3d061497fe5b90f919545f",
+      "models.py": "81d5427e06732e8ad32732e02241d48804a2195d2bc6b936126978b143425213",
+      "train.py": "d6af9555947185bfcc5b756a625ea1940fd50765c525a2dfd30ad635b041a740"
+    },
+    "data_manifest_sha256": "fea9fb33d2c7140703f34b9fee882b2305daa73d523f867c7a0beee7f2d086b0",
+    "dataset_sha256": "1b2a26fddceef1c39bf2ede5a860426b66426c859b822f03e79be9e85854b0cc"
+  },
+  "parameter_count": 51777,
+  "initial_val_mse": 0.8719545699563924,
+  "best_val_mse": 0.20012849008335623,
+  "best_epoch": 20,
+  "epochs": 28,
+  "elapsed_seconds": 1115.7309607999632,
+  "checkpoint_sha256": "f4db0d4bacd50d7520f8351deae72cdf00617e07d38a292657b54aa3f2540d52",
+  "checkpoint_reload_exact": true,
+  "deterministic_algorithms": true
+}
