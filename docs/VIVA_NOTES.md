@@ -1,5 +1,7 @@
 # VIVA_NOTES.md — for Jabin & Joanna (agents: skim only)
 
+> This is the preliminary teaching brief. For the actual detector, timestamp rules and measured outcome, use [PROTOCOL_AMENDMENTS.md](PROTOCOL_AMENDMENTS.md) and the generated [RESULTS_AND_VIVA.md](RESULTS_AND_VIVA.md). Preliminary scores below are not the final experiment's results.
+
 ## The whole project in one picture
 ```
  last 72 hours                                     12 h later

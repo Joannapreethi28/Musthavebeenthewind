@@ -1,0 +1,2755 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-27T06:33:50.141822+00:00",
+  "files": {
+    "data/raw/goes15/g15_epead_e13ew_5m_20120101_20120131.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2012/01/goes15/netcdf/g15_epead_e13ew_5m_20120101_20120131.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2012/01/goes15/netcdf/g15_epead_e13ew_5m_20120101_20120131.nc",
+      "retrieved_at_utc": "2026-10-27T06:34:38.257665+00:00",
+      "size_bytes": 942476,
+      "sha256": "7790a89d88d55352329e53e897e5ad7fca22d8e5c0234f0119895b67f18dd8ac",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2012-01-01T00:00:00+00:00",
+        "last_time_utc": "2012-01-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8921,
+            "invalid_samples": 7,
+            "nonzero_quality_samples": 7,
+            "fill_flux_samples": 7,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8921,
+            "invalid_samples": 7,
+            "nonzero_quality_samples": 7,
+            "fill_flux_samples": 7,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:36.561706+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20120201_20120229.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2012/02/goes15/netcdf/g15_epead_e13ew_5m_20120201_20120229.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2012/02/goes15/netcdf/g15_epead_e13ew_5m_20120201_20120229.nc",
+      "retrieved_at_utc": "2026-10-27T06:34:45.368131+00:00",
+      "size_bytes": 882540,
+      "sha256": "2612c5478b2262067193cf4ecd96218dba12f5528c0065f4aeb15553d516e822",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8352,
+        "expected_rows": 8352,
+        "absent_grid_records": 0,
+        "first_time_utc": "2012-02-01T00:00:00+00:00",
+        "last_time_utc": "2012-02-29T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8326,
+            "invalid_samples": 26,
+            "nonzero_quality_samples": 25,
+            "fill_flux_samples": 26,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8326,
+            "invalid_samples": 26,
+            "nonzero_quality_samples": 25,
+            "fill_flux_samples": 26,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:36.474651+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20120301_20120331.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2012/03/goes15/netcdf/g15_epead_e13ew_5m_20120301_20120331.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2012/03/goes15/netcdf/g15_epead_e13ew_5m_20120301_20120331.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:00.380087+00:00",
+      "size_bytes": 912524,
+      "sha256": "a225ed922e8bef8661728520c10861fae1077081c4a4341bcd9c92e40d90623c",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8928,
+        "absent_grid_records": 288,
+        "first_time_utc": "2012-03-01T00:00:00+00:00",
+        "last_time_utc": "2012-03-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8395,
+            "invalid_samples": 245,
+            "nonzero_quality_samples": 245,
+            "fill_flux_samples": 245,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8395,
+            "invalid_samples": 245,
+            "nonzero_quality_samples": 245,
+            "fill_flux_samples": 245,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:36.508199+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20120401_20120430.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2012/04/goes15/netcdf/g15_epead_e13ew_5m_20120401_20120430.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2012/04/goes15/netcdf/g15_epead_e13ew_5m_20120401_20120430.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:00.381699+00:00",
+      "size_bytes": 912508,
+      "sha256": "c0f9f4c838f998beda6de91827b0e3d0709e622bcee271b7c59f43bd5ef62e55",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8640,
+        "absent_grid_records": 0,
+        "first_time_utc": "2012-04-01T00:00:00+00:00",
+        "last_time_utc": "2012-04-30T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8634,
+            "invalid_samples": 6,
+            "nonzero_quality_samples": 6,
+            "fill_flux_samples": 6,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8634,
+            "invalid_samples": 6,
+            "nonzero_quality_samples": 6,
+            "fill_flux_samples": 6,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:36.531280+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20120501_20120531.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2012/05/goes15/netcdf/g15_epead_e13ew_5m_20120501_20120531.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2012/05/goes15/netcdf/g15_epead_e13ew_5m_20120501_20120531.nc",
+      "retrieved_at_utc": "2026-10-27T06:38:46.431311+00:00",
+      "size_bytes": 942476,
+      "sha256": "404b32e4f87764e8764e5560bdba64bb16232745b998d1e7e0eee67b28cb3aec",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2012-05-01T00:00:00+00:00",
+        "last_time_utc": "2012-05-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8916,
+            "invalid_samples": 12,
+            "nonzero_quality_samples": 12,
+            "fill_flux_samples": 12,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8916,
+            "invalid_samples": 12,
+            "nonzero_quality_samples": 12,
+            "fill_flux_samples": 12,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:36.607772+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20120601_20120630.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2012/06/goes15/netcdf/g15_epead_e13ew_5m_20120601_20120630.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2012/06/goes15/netcdf/g15_epead_e13ew_5m_20120601_20120630.nc",
+      "retrieved_at_utc": "2026-10-27T06:38:59.985639+00:00",
+      "size_bytes": 912508,
+      "sha256": "a41a1d343abec0786e650dd729092035266de366f4683298c31b9ec5ffb3e535",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8640,
+        "absent_grid_records": 0,
+        "first_time_utc": "2012-06-01T00:00:00+00:00",
+        "last_time_utc": "2012-06-30T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8634,
+            "invalid_samples": 6,
+            "nonzero_quality_samples": 6,
+            "fill_flux_samples": 6,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8634,
+            "invalid_samples": 6,
+            "nonzero_quality_samples": 6,
+            "fill_flux_samples": 6,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:36.682305+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20120701_20120731.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2012/07/goes15/netcdf/g15_epead_e13ew_5m_20120701_20120731.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2012/07/goes15/netcdf/g15_epead_e13ew_5m_20120701_20120731.nc",
+      "retrieved_at_utc": "2026-10-27T06:38:56.367972+00:00",
+      "size_bytes": 942476,
+      "sha256": "a26379185a85c91be7caa0a3d046e065037ad485bb9572111c669790c6d90e5b",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2012-07-01T00:00:00+00:00",
+        "last_time_utc": "2012-07-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8922,
+            "invalid_samples": 6,
+            "nonzero_quality_samples": 6,
+            "fill_flux_samples": 6,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8922,
+            "invalid_samples": 6,
+            "nonzero_quality_samples": 6,
+            "fill_flux_samples": 6,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:36.647564+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20120801_20120831.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2012/08/goes15/netcdf/g15_epead_e13ew_5m_20120801_20120831.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2012/08/goes15/netcdf/g15_epead_e13ew_5m_20120801_20120831.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:00.829908+00:00",
+      "size_bytes": 942476,
+      "sha256": "5927cb535243ead093b334f37c489b21ece4e18c8e7d3e5ce6104cf5531cf96b",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2012-08-01T00:00:00+00:00",
+        "last_time_utc": "2012-08-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8920,
+            "invalid_samples": 8,
+            "nonzero_quality_samples": 8,
+            "fill_flux_samples": 8,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8920,
+            "invalid_samples": 8,
+            "nonzero_quality_samples": 8,
+            "fill_flux_samples": 8,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:36.718207+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20120901_20120930.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2012/09/goes15/netcdf/g15_epead_e13ew_5m_20120901_20120930.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2012/09/goes15/netcdf/g15_epead_e13ew_5m_20120901_20120930.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:15.307430+00:00",
+      "size_bytes": 912508,
+      "sha256": "e7eccc1c7ebab2fc8db42ad485b0ce82126a2dacd64d35bc2982e9d08d377f76",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8640,
+        "absent_grid_records": 0,
+        "first_time_utc": "2012-09-01T00:00:00+00:00",
+        "last_time_utc": "2012-09-30T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8637,
+            "invalid_samples": 3,
+            "nonzero_quality_samples": 3,
+            "fill_flux_samples": 3,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8637,
+            "invalid_samples": 3,
+            "nonzero_quality_samples": 3,
+            "fill_flux_samples": 3,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:36.778524+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20121001_20121031.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2012/10/goes15/netcdf/g15_epead_e13ew_5m_20121001_20121031.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2012/10/goes15/netcdf/g15_epead_e13ew_5m_20121001_20121031.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:04.491304+00:00",
+      "size_bytes": 912524,
+      "sha256": "8d0460a6beabf2dbafb04a7a6e466fede60951df52d02d9a7cb69ed7a371ebc2",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8928,
+        "absent_grid_records": 288,
+        "first_time_utc": "2012-10-01T00:00:00+00:00",
+        "last_time_utc": "2012-10-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8316,
+            "invalid_samples": 324,
+            "nonzero_quality_samples": 323,
+            "fill_flux_samples": 324,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8316,
+            "invalid_samples": 324,
+            "nonzero_quality_samples": 323,
+            "fill_flux_samples": 324,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:36.820587+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20121101_20121130.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2012/11/goes15/netcdf/g15_epead_e13ew_5m_20121101_20121130.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2012/11/goes15/netcdf/g15_epead_e13ew_5m_20121101_20121130.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:18.058248+00:00",
+      "size_bytes": 912508,
+      "sha256": "f6f74f377932fd427ad32e081903abc35811e33759c839a95bbfbd29eb19d953",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8640,
+        "absent_grid_records": 0,
+        "first_time_utc": "2012-11-01T00:00:00+00:00",
+        "last_time_utc": "2012-11-30T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8609,
+            "invalid_samples": 31,
+            "nonzero_quality_samples": 31,
+            "fill_flux_samples": 31,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8609,
+            "invalid_samples": 31,
+            "nonzero_quality_samples": 31,
+            "fill_flux_samples": 31,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:36.822876+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20121201_20121231.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2012/12/goes15/netcdf/g15_epead_e13ew_5m_20121201_20121231.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2012/12/goes15/netcdf/g15_epead_e13ew_5m_20121201_20121231.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:08.752851+00:00",
+      "size_bytes": 942476,
+      "sha256": "8d4b0cc396d5102bea7943ec4a4eae00796fe7581f5ed7437ff50a7ea83ba619",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2012-12-01T00:00:00+00:00",
+        "last_time_utc": "2012-12-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8923,
+            "invalid_samples": 5,
+            "nonzero_quality_samples": 5,
+            "fill_flux_samples": 5,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8923,
+            "invalid_samples": 5,
+            "nonzero_quality_samples": 5,
+            "fill_flux_samples": 5,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:36.881531+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20130101_20130131.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2013/01/goes15/netcdf/g15_epead_e13ew_5m_20130101_20130131.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2013/01/goes15/netcdf/g15_epead_e13ew_5m_20130101_20130131.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:12.435533+00:00",
+      "size_bytes": 942476,
+      "sha256": "0631ad32e65c306f9724943678b86970d91ed82a178deed1e0c21b01f3736710",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2013-01-01T00:00:00+00:00",
+        "last_time_utc": "2013-01-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8921,
+            "invalid_samples": 7,
+            "nonzero_quality_samples": 7,
+            "fill_flux_samples": 7,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8921,
+            "invalid_samples": 7,
+            "nonzero_quality_samples": 7,
+            "fill_flux_samples": 7,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:36.942358+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20130201_20130228.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2013/02/goes15/netcdf/g15_epead_e13ew_5m_20130201_20130228.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2013/02/goes15/netcdf/g15_epead_e13ew_5m_20130201_20130228.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:13.539359+00:00",
+      "size_bytes": 852572,
+      "sha256": "eea5a4dc86a43d6659b8900a68c1d43d3199add5f3f1231101e07880ec69be11",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8064,
+        "expected_rows": 8064,
+        "absent_grid_records": 0,
+        "first_time_utc": "2013-02-01T00:00:00+00:00",
+        "last_time_utc": "2013-02-28T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8021,
+            "invalid_samples": 43,
+            "nonzero_quality_samples": 43,
+            "fill_flux_samples": 43,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8021,
+            "invalid_samples": 43,
+            "nonzero_quality_samples": 43,
+            "fill_flux_samples": 43,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:37.010616+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20130301_20130331.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2013/03/goes15/netcdf/g15_epead_e13ew_5m_20130301_20130331.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2013/03/goes15/netcdf/g15_epead_e13ew_5m_20130301_20130331.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:38.378104+00:00",
+      "size_bytes": 942476,
+      "sha256": "b3a731cd1f12f10011ca58c16becede3c8194069eeb85260706698277cf44739",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2013-03-01T00:00:00+00:00",
+        "last_time_utc": "2013-03-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8903,
+            "invalid_samples": 25,
+            "nonzero_quality_samples": 25,
+            "fill_flux_samples": 25,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8903,
+            "invalid_samples": 25,
+            "nonzero_quality_samples": 25,
+            "fill_flux_samples": 25,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:36.975247+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20130401_20130430.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2013/04/goes15/netcdf/g15_epead_e13ew_5m_20130401_20130430.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2013/04/goes15/netcdf/g15_epead_e13ew_5m_20130401_20130430.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:26.894597+00:00",
+      "size_bytes": 912572,
+      "sha256": "b906cf27949f0eb98ee03cff260dd92a397834663d2f9913040eeb512dcb34dd",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8640,
+        "absent_grid_records": 0,
+        "first_time_utc": "2013-04-01T00:00:00+00:00",
+        "last_time_utc": "2013-04-30T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8626,
+            "invalid_samples": 14,
+            "nonzero_quality_samples": 14,
+            "fill_flux_samples": 14,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8626,
+            "invalid_samples": 14,
+            "nonzero_quality_samples": 14,
+            "fill_flux_samples": 14,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:37.043605+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20130501_20130531.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2013/05/goes15/netcdf/g15_epead_e13ew_5m_20130501_20130531.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2013/05/goes15/netcdf/g15_epead_e13ew_5m_20130501_20130531.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:36.904419+00:00",
+      "size_bytes": 942540,
+      "sha256": "b0b2147659262f2be29e5f1f71107f851ce55d7a23ae5a0c4276ce68aad708dd",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2013-05-01T00:00:00+00:00",
+        "last_time_utc": "2013-05-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8886,
+            "invalid_samples": 42,
+            "nonzero_quality_samples": 42,
+            "fill_flux_samples": 42,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8885,
+            "invalid_samples": 43,
+            "nonzero_quality_samples": 42,
+            "fill_flux_samples": 43,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:37.096306+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20130601_20130630.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2013/06/goes15/netcdf/g15_epead_e13ew_5m_20130601_20130630.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2013/06/goes15/netcdf/g15_epead_e13ew_5m_20130601_20130630.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:29.696336+00:00",
+      "size_bytes": 912572,
+      "sha256": "2248b2a86ebf0ac6b426e4465850ceb8926cf21e0fa8ff4be5f6ce2166325e7d",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8640,
+        "absent_grid_records": 0,
+        "first_time_utc": "2013-06-01T00:00:00+00:00",
+        "last_time_utc": "2013-06-30T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8635,
+            "invalid_samples": 5,
+            "nonzero_quality_samples": 5,
+            "fill_flux_samples": 5,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8635,
+            "invalid_samples": 5,
+            "nonzero_quality_samples": 5,
+            "fill_flux_samples": 5,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:37.133946+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20130701_20130731.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2013/07/goes15/netcdf/g15_epead_e13ew_5m_20130701_20130731.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2013/07/goes15/netcdf/g15_epead_e13ew_5m_20130701_20130731.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:38.130051+00:00",
+      "size_bytes": 942540,
+      "sha256": "1929d82841ce2dab67a1f3adfa370646f39dcd851430acdfc0ebb60043a82f36",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2013-07-01T00:00:00+00:00",
+        "last_time_utc": "2013-07-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8922,
+            "invalid_samples": 6,
+            "nonzero_quality_samples": 6,
+            "fill_flux_samples": 6,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8922,
+            "invalid_samples": 6,
+            "nonzero_quality_samples": 6,
+            "fill_flux_samples": 6,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:37.168184+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20130801_20130831.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2013/08/goes15/netcdf/g15_epead_e13ew_5m_20130801_20130831.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2013/08/goes15/netcdf/g15_epead_e13ew_5m_20130801_20130831.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:40.506359+00:00",
+      "size_bytes": 942540,
+      "sha256": "4f741add1973ae50c7739b2e9aa940caabfd8ec8fc8c599f63407b05215a32b9",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2013-08-01T00:00:00+00:00",
+        "last_time_utc": "2013-08-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8920,
+            "invalid_samples": 8,
+            "nonzero_quality_samples": 8,
+            "fill_flux_samples": 8,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8920,
+            "invalid_samples": 8,
+            "nonzero_quality_samples": 8,
+            "fill_flux_samples": 8,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:37.212327+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20130901_20130930.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2013/09/goes15/netcdf/g15_epead_e13ew_5m_20130901_20130930.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2013/09/goes15/netcdf/g15_epead_e13ew_5m_20130901_20130930.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:40.413738+00:00",
+      "size_bytes": 912572,
+      "sha256": "49402afbfec0cf9c75a5b6efea9739122bb99ea556eb8a39a4ad50ce97f17b56",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8640,
+        "absent_grid_records": 0,
+        "first_time_utc": "2013-09-01T00:00:00+00:00",
+        "last_time_utc": "2013-09-30T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8629,
+            "invalid_samples": 11,
+            "nonzero_quality_samples": 10,
+            "fill_flux_samples": 11,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8629,
+            "invalid_samples": 11,
+            "nonzero_quality_samples": 10,
+            "fill_flux_samples": 11,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:37.252414+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20131001_20131031.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2013/10/goes15/netcdf/g15_epead_e13ew_5m_20131001_20131031.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2013/10/goes15/netcdf/g15_epead_e13ew_5m_20131001_20131031.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:41.586123+00:00",
+      "size_bytes": 942540,
+      "sha256": "27ceade3d0e428cfbc402147ecac4d0f6d7e8814c72f4a3800a118bdce236855",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2013-10-01T00:00:00+00:00",
+        "last_time_utc": "2013-10-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8912,
+            "invalid_samples": 16,
+            "nonzero_quality_samples": 16,
+            "fill_flux_samples": 16,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8912,
+            "invalid_samples": 16,
+            "nonzero_quality_samples": 16,
+            "fill_flux_samples": 16,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:37.286681+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20131101_20131130.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2013/11/goes15/netcdf/g15_epead_e13ew_5m_20131101_20131130.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2013/11/goes15/netcdf/g15_epead_e13ew_5m_20131101_20131130.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:42.112527+00:00",
+      "size_bytes": 912572,
+      "sha256": "6162d27b700ba775f9b5ea703e4650fb75d20fed10b2d91c071ee4ce5291aa01",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8640,
+        "absent_grid_records": 0,
+        "first_time_utc": "2013-11-01T00:00:00+00:00",
+        "last_time_utc": "2013-11-30T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8632,
+            "invalid_samples": 8,
+            "nonzero_quality_samples": 8,
+            "fill_flux_samples": 8,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8631,
+            "invalid_samples": 9,
+            "nonzero_quality_samples": 8,
+            "fill_flux_samples": 9,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:37.318210+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20131201_20131231.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2013/12/goes15/netcdf/g15_epead_e13ew_5m_20131201_20131231.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2013/12/goes15/netcdf/g15_epead_e13ew_5m_20131201_20131231.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:44.701741+00:00",
+      "size_bytes": 942540,
+      "sha256": "174c4d6e681e180e082572720c270d26c01b94faf5cd1ac0e9ddde6dbd12f2ae",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2013-12-01T00:00:00+00:00",
+        "last_time_utc": "2013-12-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8923,
+            "invalid_samples": 5,
+            "nonzero_quality_samples": 5,
+            "fill_flux_samples": 5,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8923,
+            "invalid_samples": 5,
+            "nonzero_quality_samples": 5,
+            "fill_flux_samples": 5,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:37.362597+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20140101_20140131.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2014/01/goes15/netcdf/g15_epead_e13ew_5m_20140101_20140131.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2014/01/goes15/netcdf/g15_epead_e13ew_5m_20140101_20140131.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:43.927723+00:00",
+      "size_bytes": 942540,
+      "sha256": "a092ee921f3fd8e842912e7b0dcf4517c7decb8043c5c153443c5a3954f31f6a",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2014-01-01T00:00:00+00:00",
+        "last_time_utc": "2014-01-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8722,
+            "invalid_samples": 206,
+            "nonzero_quality_samples": 204,
+            "fill_flux_samples": 206,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8722,
+            "invalid_samples": 206,
+            "nonzero_quality_samples": 204,
+            "fill_flux_samples": 206,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:37.405490+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20140201_20140228.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2014/02/goes15/netcdf/g15_epead_e13ew_5m_20140201_20140228.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2014/02/goes15/netcdf/g15_epead_e13ew_5m_20140201_20140228.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:44.860126+00:00",
+      "size_bytes": 852636,
+      "sha256": "b3fd8821dafc1ca0ab56de50c70f6d0603343fdbca79a17f552ac238617f3b91",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8064,
+        "expected_rows": 8064,
+        "absent_grid_records": 0,
+        "first_time_utc": "2014-02-01T00:00:00+00:00",
+        "last_time_utc": "2014-02-28T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8007,
+            "invalid_samples": 57,
+            "nonzero_quality_samples": 45,
+            "fill_flux_samples": 57,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8007,
+            "invalid_samples": 57,
+            "nonzero_quality_samples": 45,
+            "fill_flux_samples": 57,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:37.437655+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20140301_20140331.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2014/03/goes15/netcdf/g15_epead_e13ew_5m_20140301_20140331.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2014/03/goes15/netcdf/g15_epead_e13ew_5m_20140301_20140331.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:45.592174+00:00",
+      "size_bytes": 942540,
+      "sha256": "79f6b772f471195cb4334f64cc4e4ef273c07637c1c132d42ac8b9bb10d76aae",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2014-03-01T00:00:00+00:00",
+        "last_time_utc": "2014-03-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8908,
+            "invalid_samples": 20,
+            "nonzero_quality_samples": 20,
+            "fill_flux_samples": 20,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8908,
+            "invalid_samples": 20,
+            "nonzero_quality_samples": 20,
+            "fill_flux_samples": 20,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:37.471900+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20140401_20140430.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2014/04/goes15/netcdf/g15_epead_e13ew_5m_20140401_20140430.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2014/04/goes15/netcdf/g15_epead_e13ew_5m_20140401_20140430.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:47.712602+00:00",
+      "size_bytes": 912572,
+      "sha256": "0e3cb791d762e9747cf515ad2ef4822d6545ab000568e9bfc8baf0b8ffcfc57d",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8640,
+        "absent_grid_records": 0,
+        "first_time_utc": "2014-04-01T00:00:00+00:00",
+        "last_time_utc": "2014-04-30T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8628,
+            "invalid_samples": 12,
+            "nonzero_quality_samples": 12,
+            "fill_flux_samples": 12,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8628,
+            "invalid_samples": 12,
+            "nonzero_quality_samples": 12,
+            "fill_flux_samples": 12,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:37.517974+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20140501_20140531.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2014/05/goes15/netcdf/g15_epead_e13ew_5m_20140501_20140531.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2014/05/goes15/netcdf/g15_epead_e13ew_5m_20140501_20140531.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:48.470758+00:00",
+      "size_bytes": 942540,
+      "sha256": "575d8e789410337f8748a83a73d67567ccc0cb0dec82b3191ef0747579e2a7e5",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2014-05-01T00:00:00+00:00",
+        "last_time_utc": "2014-05-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8873,
+            "invalid_samples": 55,
+            "nonzero_quality_samples": 50,
+            "fill_flux_samples": 55,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8872,
+            "invalid_samples": 56,
+            "nonzero_quality_samples": 50,
+            "fill_flux_samples": 56,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:37.588032+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20140601_20140630.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2014/06/goes15/netcdf/g15_epead_e13ew_5m_20140601_20140630.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2014/06/goes15/netcdf/g15_epead_e13ew_5m_20140601_20140630.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:49.278798+00:00",
+      "size_bytes": 912572,
+      "sha256": "cf700f8f0a35ee7710fd8b55b844544481f343aded36ac32cd22ed85980f2dcc",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8640,
+        "absent_grid_records": 0,
+        "first_time_utc": "2014-06-01T00:00:00+00:00",
+        "last_time_utc": "2014-06-30T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8634,
+            "invalid_samples": 6,
+            "nonzero_quality_samples": 6,
+            "fill_flux_samples": 6,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8634,
+            "invalid_samples": 6,
+            "nonzero_quality_samples": 6,
+            "fill_flux_samples": 6,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:37.549065+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20140701_20140731.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2014/07/goes15/netcdf/g15_epead_e13ew_5m_20140701_20140731.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2014/07/goes15/netcdf/g15_epead_e13ew_5m_20140701_20140731.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:49.682698+00:00",
+      "size_bytes": 942540,
+      "sha256": "ec616b4818c4cd7c8fa1de20f315e492df392135ce6048b0d9bee193da95cfef",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2014-07-01T00:00:00+00:00",
+        "last_time_utc": "2014-07-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8859,
+            "invalid_samples": 69,
+            "nonzero_quality_samples": 69,
+            "fill_flux_samples": 69,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8859,
+            "invalid_samples": 69,
+            "nonzero_quality_samples": 69,
+            "fill_flux_samples": 69,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:37.576622+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20140801_20140831.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2014/08/goes15/netcdf/g15_epead_e13ew_5m_20140801_20140831.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2014/08/goes15/netcdf/g15_epead_e13ew_5m_20140801_20140831.nc",
+      "retrieved_at_utc": "2026-10-27T06:39:52.341083+00:00",
+      "size_bytes": 942540,
+      "sha256": "38cf4e058732dd5ce27e82e01d20d2d95103860b7d02cd9b8e1b766b27f93dc7",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2014-08-01T00:00:00+00:00",
+        "last_time_utc": "2014-08-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8918,
+            "invalid_samples": 10,
+            "nonzero_quality_samples": 10,
+            "fill_flux_samples": 10,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8918,
+            "invalid_samples": 10,
+            "nonzero_quality_samples": 10,
+            "fill_flux_samples": 10,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:37.655140+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20140901_20140930.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2014/09/goes15/netcdf/g15_epead_e13ew_5m_20140901_20140930.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2014/09/goes15/netcdf/g15_epead_e13ew_5m_20140901_20140930.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:01.670696+00:00",
+      "size_bytes": 912572,
+      "sha256": "2c79908249cc42ea55300f1bdbe91dab7dece6f87870f00ed8a3543c217102af",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8640,
+        "absent_grid_records": 0,
+        "first_time_utc": "2014-09-01T00:00:00+00:00",
+        "last_time_utc": "2014-09-30T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8632,
+            "invalid_samples": 8,
+            "nonzero_quality_samples": 8,
+            "fill_flux_samples": 8,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8632,
+            "invalid_samples": 8,
+            "nonzero_quality_samples": 8,
+            "fill_flux_samples": 8,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:37.694671+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20141001_20141031.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2014/10/goes15/netcdf/g15_epead_e13ew_5m_20141001_20141031.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2014/10/goes15/netcdf/g15_epead_e13ew_5m_20141001_20141031.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:07.443277+00:00",
+      "size_bytes": 942532,
+      "sha256": "4d1f3fcd70d1a92fb87acd93a2c9818cec791d800e8d12c6fe14a6e76ef0a6f7",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2014-10-01T00:00:00+00:00",
+        "last_time_utc": "2014-10-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8914,
+            "invalid_samples": 14,
+            "nonzero_quality_samples": 14,
+            "fill_flux_samples": 14,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8914,
+            "invalid_samples": 14,
+            "nonzero_quality_samples": 14,
+            "fill_flux_samples": 14,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:37.753964+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20141101_20141130.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2014/11/goes15/netcdf/g15_epead_e13ew_5m_20141101_20141130.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2014/11/goes15/netcdf/g15_epead_e13ew_5m_20141101_20141130.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:01.381431+00:00",
+      "size_bytes": 912564,
+      "sha256": "f2a36231edfa0a661d404817a19236011639bec547d6ccbbb1e25bef73ecf2bc",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8640,
+        "absent_grid_records": 0,
+        "first_time_utc": "2014-11-01T00:00:00+00:00",
+        "last_time_utc": "2014-11-30T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8627,
+            "invalid_samples": 13,
+            "nonzero_quality_samples": 13,
+            "fill_flux_samples": 13,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8627,
+            "invalid_samples": 13,
+            "nonzero_quality_samples": 13,
+            "fill_flux_samples": 13,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:37.792403+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20141201_20141231.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2014/12/goes15/netcdf/g15_epead_e13ew_5m_20141201_20141231.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2014/12/goes15/netcdf/g15_epead_e13ew_5m_20141201_20141231.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:02.836902+00:00",
+      "size_bytes": 942532,
+      "sha256": "7c7dd756b30b5e4ea1362cf7eca8004e8ab68c6c0b1b0587214ba5ac77cc5a8f",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2014-12-01T00:00:00+00:00",
+        "last_time_utc": "2014-12-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8763,
+            "invalid_samples": 165,
+            "nonzero_quality_samples": 165,
+            "fill_flux_samples": 165,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8763,
+            "invalid_samples": 165,
+            "nonzero_quality_samples": 165,
+            "fill_flux_samples": 165,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:37.897814+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20150101_20150131.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2015/01/goes15/netcdf/g15_epead_e13ew_5m_20150101_20150131.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2015/01/goes15/netcdf/g15_epead_e13ew_5m_20150101_20150131.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:05.429129+00:00",
+      "size_bytes": 942532,
+      "sha256": "e36a6421bde7662584cb6bbafffce5f413db6129798f0ff794fda170f0dadec2",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2015-01-01T00:00:00+00:00",
+        "last_time_utc": "2015-01-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8904,
+            "invalid_samples": 24,
+            "nonzero_quality_samples": 24,
+            "fill_flux_samples": 24,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8904,
+            "invalid_samples": 24,
+            "nonzero_quality_samples": 24,
+            "fill_flux_samples": 24,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:37.874300+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20150201_20150228.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2015/02/goes15/netcdf/g15_epead_e13ew_5m_20150201_20150228.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2015/02/goes15/netcdf/g15_epead_e13ew_5m_20150201_20150228.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:04.892510+00:00",
+      "size_bytes": 852628,
+      "sha256": "18ec5434f985c50ccb2ba2386fea4d4ef9613ef3d1615db7f90c6ea3e17cb8a2",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8064,
+        "expected_rows": 8064,
+        "absent_grid_records": 0,
+        "first_time_utc": "2015-02-01T00:00:00+00:00",
+        "last_time_utc": "2015-02-28T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 7902,
+            "invalid_samples": 162,
+            "nonzero_quality_samples": 161,
+            "fill_flux_samples": 162,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 7902,
+            "invalid_samples": 162,
+            "nonzero_quality_samples": 161,
+            "fill_flux_samples": 162,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:37.976293+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20150301_20150331.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2015/03/goes15/netcdf/g15_epead_e13ew_5m_20150301_20150331.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2015/03/goes15/netcdf/g15_epead_e13ew_5m_20150301_20150331.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:06.412620+00:00",
+      "size_bytes": 942532,
+      "sha256": "759173e7857023b75b3f69d9da2b59ff6a8377deb783ad6513f98c8da46efaa0",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2015-03-01T00:00:00+00:00",
+        "last_time_utc": "2015-03-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8726,
+            "invalid_samples": 202,
+            "nonzero_quality_samples": 202,
+            "fill_flux_samples": 202,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8726,
+            "invalid_samples": 202,
+            "nonzero_quality_samples": 202,
+            "fill_flux_samples": 202,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:38.031891+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20150401_20150430.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2015/04/goes15/netcdf/g15_epead_e13ew_5m_20150401_20150430.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2015/04/goes15/netcdf/g15_epead_e13ew_5m_20150401_20150430.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:08.363407+00:00",
+      "size_bytes": 912564,
+      "sha256": "b2e0719d867dad53228c25367c6fde771b1a0d44062080415fdd7a482db0597e",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8640,
+        "absent_grid_records": 0,
+        "first_time_utc": "2015-04-01T00:00:00+00:00",
+        "last_time_utc": "2015-04-30T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8533,
+            "invalid_samples": 107,
+            "nonzero_quality_samples": 107,
+            "fill_flux_samples": 107,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8533,
+            "invalid_samples": 107,
+            "nonzero_quality_samples": 107,
+            "fill_flux_samples": 107,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:38.126840+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20150501_20150531.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2015/05/goes15/netcdf/g15_epead_e13ew_5m_20150501_20150531.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2015/05/goes15/netcdf/g15_epead_e13ew_5m_20150501_20150531.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:10.912189+00:00",
+      "size_bytes": 942532,
+      "sha256": "c8f2b5bb44121b093fcbd963a4751373754b43ff5b72c2a8c95019cfada61ab5",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2015-05-01T00:00:00+00:00",
+        "last_time_utc": "2015-05-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8903,
+            "invalid_samples": 25,
+            "nonzero_quality_samples": 25,
+            "fill_flux_samples": 25,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8903,
+            "invalid_samples": 25,
+            "nonzero_quality_samples": 25,
+            "fill_flux_samples": 25,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:38.149969+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20150601_20150630.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2015/06/goes15/netcdf/g15_epead_e13ew_5m_20150601_20150630.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2015/06/goes15/netcdf/g15_epead_e13ew_5m_20150601_20150630.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:16.705785+00:00",
+      "size_bytes": 912564,
+      "sha256": "063333d095c59e32f152693807c4ef5618b25b3a2dcfb0f0d836bf98aefc8d45",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8640,
+        "absent_grid_records": 0,
+        "first_time_utc": "2015-06-01T00:00:00+00:00",
+        "last_time_utc": "2015-06-30T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8321,
+            "invalid_samples": 319,
+            "nonzero_quality_samples": 318,
+            "fill_flux_samples": 319,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8321,
+            "invalid_samples": 319,
+            "nonzero_quality_samples": 318,
+            "fill_flux_samples": 319,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:38.222795+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20150701_20150731.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2015/07/goes15/netcdf/g15_epead_e13ew_5m_20150701_20150731.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2015/07/goes15/netcdf/g15_epead_e13ew_5m_20150701_20150731.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:11.147431+00:00",
+      "size_bytes": 942532,
+      "sha256": "f330b714e417c5fb97cf4cb7d36b1cf2d6576a78203fe14609fd6e4adbd4d80d",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2015-07-01T00:00:00+00:00",
+        "last_time_utc": "2015-07-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8860,
+            "invalid_samples": 68,
+            "nonzero_quality_samples": 68,
+            "fill_flux_samples": 68,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8860,
+            "invalid_samples": 68,
+            "nonzero_quality_samples": 68,
+            "fill_flux_samples": 68,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:38.252692+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20150801_20150831.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2015/08/goes15/netcdf/g15_epead_e13ew_5m_20150801_20150831.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2015/08/goes15/netcdf/g15_epead_e13ew_5m_20150801_20150831.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:11.863640+00:00",
+      "size_bytes": 942532,
+      "sha256": "f4c2267f360f0a8ed23bf57116b286504889c568de20b1333b5b15a3620eb002",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2015-08-01T00:00:00+00:00",
+        "last_time_utc": "2015-08-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8917,
+            "invalid_samples": 11,
+            "nonzero_quality_samples": 11,
+            "fill_flux_samples": 11,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8917,
+            "invalid_samples": 11,
+            "nonzero_quality_samples": 11,
+            "fill_flux_samples": 11,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:38.341313+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20150901_20150930.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2015/09/goes15/netcdf/g15_epead_e13ew_5m_20150901_20150930.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2015/09/goes15/netcdf/g15_epead_e13ew_5m_20150901_20150930.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:16.589663+00:00",
+      "size_bytes": 912564,
+      "sha256": "183460ba1854e180b352bca7db77f5495a35637140f76408458f761d9ece5d97",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8640,
+        "absent_grid_records": 0,
+        "first_time_utc": "2015-09-01T00:00:00+00:00",
+        "last_time_utc": "2015-09-30T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8607,
+            "invalid_samples": 33,
+            "nonzero_quality_samples": 32,
+            "fill_flux_samples": 33,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8607,
+            "invalid_samples": 33,
+            "nonzero_quality_samples": 32,
+            "fill_flux_samples": 33,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:38.305562+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20151001_20151031.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2015/10/goes15/netcdf/g15_epead_e13ew_5m_20151001_20151031.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2015/10/goes15/netcdf/g15_epead_e13ew_5m_20151001_20151031.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:14.506685+00:00",
+      "size_bytes": 942532,
+      "sha256": "a52e6f7be8771f44202578302ab4f648ba64efbb94a65346c8d90e1858f1e32d",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2015-10-01T00:00:00+00:00",
+        "last_time_utc": "2015-10-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8914,
+            "invalid_samples": 14,
+            "nonzero_quality_samples": 14,
+            "fill_flux_samples": 14,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8913,
+            "invalid_samples": 15,
+            "nonzero_quality_samples": 14,
+            "fill_flux_samples": 15,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:38.373239+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20151101_20151130.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2015/11/goes15/netcdf/g15_epead_e13ew_5m_20151101_20151130.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2015/11/goes15/netcdf/g15_epead_e13ew_5m_20151101_20151130.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:22.056235+00:00",
+      "size_bytes": 912564,
+      "sha256": "73b0a9d3ce0f96df49a082c9fc1e40eee272dba58e44314517e4a001d6dd4ee4",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8640,
+        "absent_grid_records": 0,
+        "first_time_utc": "2015-11-01T00:00:00+00:00",
+        "last_time_utc": "2015-11-30T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8622,
+            "invalid_samples": 18,
+            "nonzero_quality_samples": 17,
+            "fill_flux_samples": 18,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8622,
+            "invalid_samples": 18,
+            "nonzero_quality_samples": 17,
+            "fill_flux_samples": 18,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:38.392644+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20151201_20151231.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2015/12/goes15/netcdf/g15_epead_e13ew_5m_20151201_20151231.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2015/12/goes15/netcdf/g15_epead_e13ew_5m_20151201_20151231.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:17.793022+00:00",
+      "size_bytes": 942532,
+      "sha256": "82488039fdb3569a45caee6b7ac8d83bfa3a06b895e7e362ac08b56b0e115a16",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2015-12-01T00:00:00+00:00",
+        "last_time_utc": "2015-12-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8893,
+            "invalid_samples": 35,
+            "nonzero_quality_samples": 35,
+            "fill_flux_samples": 35,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8893,
+            "invalid_samples": 35,
+            "nonzero_quality_samples": 35,
+            "fill_flux_samples": 35,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:38.476874+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20160101_20160131.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2016/01/goes15/netcdf/g15_epead_e13ew_5m_20160101_20160131.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2016/01/goes15/netcdf/g15_epead_e13ew_5m_20160101_20160131.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:19.852420+00:00",
+      "size_bytes": 942532,
+      "sha256": "82b7780515ee56b7014e33e69f5edb45ee78854bce014e2d251bd74522353c7c",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2016-01-01T00:00:00+00:00",
+        "last_time_utc": "2016-01-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8900,
+            "invalid_samples": 28,
+            "nonzero_quality_samples": 27,
+            "fill_flux_samples": 28,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8900,
+            "invalid_samples": 28,
+            "nonzero_quality_samples": 27,
+            "fill_flux_samples": 28,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:38.529394+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20160201_20160229.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2016/02/goes15/netcdf/g15_epead_e13ew_5m_20160201_20160229.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2016/02/goes15/netcdf/g15_epead_e13ew_5m_20160201_20160229.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:20.156271+00:00",
+      "size_bytes": 882596,
+      "sha256": "179159b06278bff1ac0e63f3ce01b39b0c5985fc65376e2accecaf93b1e2bd94",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8352,
+        "expected_rows": 8352,
+        "absent_grid_records": 0,
+        "first_time_utc": "2016-02-01T00:00:00+00:00",
+        "last_time_utc": "2016-02-29T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8344,
+            "invalid_samples": 8,
+            "nonzero_quality_samples": 8,
+            "fill_flux_samples": 8,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8344,
+            "invalid_samples": 8,
+            "nonzero_quality_samples": 8,
+            "fill_flux_samples": 8,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:38.575562+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20160301_20160331.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2016/03/goes15/netcdf/g15_epead_e13ew_5m_20160301_20160331.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2016/03/goes15/netcdf/g15_epead_e13ew_5m_20160301_20160331.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:21.132592+00:00",
+      "size_bytes": 912580,
+      "sha256": "d2278a982adff9d655cb2188e86a1a7cbbd846efbf3aa6d3c1e3d50ea78c0622",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8928,
+        "absent_grid_records": 288,
+        "first_time_utc": "2016-03-01T00:00:00+00:00",
+        "last_time_utc": "2016-03-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8541,
+            "invalid_samples": 99,
+            "nonzero_quality_samples": 99,
+            "fill_flux_samples": 99,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8541,
+            "invalid_samples": 99,
+            "nonzero_quality_samples": 99,
+            "fill_flux_samples": 99,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:38.597538+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20160401_20160430.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2016/04/goes15/netcdf/g15_epead_e13ew_5m_20160401_20160430.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2016/04/goes15/netcdf/g15_epead_e13ew_5m_20160401_20160430.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:26.666820+00:00",
+      "size_bytes": 912564,
+      "sha256": "a63f8424e07b5ab1d75429e93931bcd9698f3d7f9c6948a48949ded29804ea5b",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8640,
+        "absent_grid_records": 0,
+        "first_time_utc": "2016-04-01T00:00:00+00:00",
+        "last_time_utc": "2016-04-30T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8632,
+            "invalid_samples": 8,
+            "nonzero_quality_samples": 8,
+            "fill_flux_samples": 8,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8632,
+            "invalid_samples": 8,
+            "nonzero_quality_samples": 8,
+            "fill_flux_samples": 8,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:38.652851+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20160501_20160531.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2016/05/goes15/netcdf/g15_epead_e13ew_5m_20160501_20160531.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2016/05/goes15/netcdf/g15_epead_e13ew_5m_20160501_20160531.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:23.517765+00:00",
+      "size_bytes": 942532,
+      "sha256": "d08d8e60da4027170e1cd95f6eab7be7706372722c0baf10a5731062d3444ec6",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2016-05-01T00:00:00+00:00",
+        "last_time_utc": "2016-05-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8888,
+            "invalid_samples": 40,
+            "nonzero_quality_samples": 38,
+            "fill_flux_samples": 40,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8887,
+            "invalid_samples": 41,
+            "nonzero_quality_samples": 38,
+            "fill_flux_samples": 41,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:38.721047+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20160601_20160630.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2016/06/goes15/netcdf/g15_epead_e13ew_5m_20160601_20160630.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2016/06/goes15/netcdf/g15_epead_e13ew_5m_20160601_20160630.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:25.349729+00:00",
+      "size_bytes": 912564,
+      "sha256": "2d4a7382b2da7c63049bfe680de873cb35d4af4b0552a1712b353a900adee58b",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8640,
+        "absent_grid_records": 0,
+        "first_time_utc": "2016-06-01T00:00:00+00:00",
+        "last_time_utc": "2016-06-30T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8630,
+            "invalid_samples": 10,
+            "nonzero_quality_samples": 10,
+            "fill_flux_samples": 10,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8630,
+            "invalid_samples": 10,
+            "nonzero_quality_samples": 10,
+            "fill_flux_samples": 10,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:38.764830+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20160701_20160731.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2016/07/goes15/netcdf/g15_epead_e13ew_5m_20160701_20160731.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2016/07/goes15/netcdf/g15_epead_e13ew_5m_20160701_20160731.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:27.090152+00:00",
+      "size_bytes": 942532,
+      "sha256": "77edd30f86ee77483bb835640e456c954979fa330755acf78bc058002fbbec95",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2016-07-01T00:00:00+00:00",
+        "last_time_utc": "2016-07-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8922,
+            "invalid_samples": 6,
+            "nonzero_quality_samples": 6,
+            "fill_flux_samples": 6,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8922,
+            "invalid_samples": 6,
+            "nonzero_quality_samples": 6,
+            "fill_flux_samples": 6,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:38.789063+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20160801_20160831.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2016/08/goes15/netcdf/g15_epead_e13ew_5m_20160801_20160831.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2016/08/goes15/netcdf/g15_epead_e13ew_5m_20160801_20160831.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:28.649637+00:00",
+      "size_bytes": 942532,
+      "sha256": "7a938e38776e40df4b717e6ef98724e77d1e106a855d912345b0058518baffd4",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2016-08-01T00:00:00+00:00",
+        "last_time_utc": "2016-08-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8920,
+            "invalid_samples": 8,
+            "nonzero_quality_samples": 8,
+            "fill_flux_samples": 8,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8920,
+            "invalid_samples": 8,
+            "nonzero_quality_samples": 8,
+            "fill_flux_samples": 8,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:38.867865+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20160901_20160930.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2016/09/goes15/netcdf/g15_epead_e13ew_5m_20160901_20160930.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2016/09/goes15/netcdf/g15_epead_e13ew_5m_20160901_20160930.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:29.661606+00:00",
+      "size_bytes": 912564,
+      "sha256": "b12e313bc234f20219454c07b5433462341afb2998fcde87a017e534335f1541",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8640,
+        "absent_grid_records": 0,
+        "first_time_utc": "2016-09-01T00:00:00+00:00",
+        "last_time_utc": "2016-09-30T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8631,
+            "invalid_samples": 9,
+            "nonzero_quality_samples": 9,
+            "fill_flux_samples": 9,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8631,
+            "invalid_samples": 9,
+            "nonzero_quality_samples": 9,
+            "fill_flux_samples": 9,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:38.944979+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20161001_20161031.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2016/10/goes15/netcdf/g15_epead_e13ew_5m_20161001_20161031.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2016/10/goes15/netcdf/g15_epead_e13ew_5m_20161001_20161031.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:30.512909+00:00",
+      "size_bytes": 942532,
+      "sha256": "2e63dd5f94670c3b527bb341f12492387695448d11043db0b8bc3fbf8af295d2",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2016-10-01T00:00:00+00:00",
+        "last_time_utc": "2016-10-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8917,
+            "invalid_samples": 11,
+            "nonzero_quality_samples": 10,
+            "fill_flux_samples": 11,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8917,
+            "invalid_samples": 11,
+            "nonzero_quality_samples": 10,
+            "fill_flux_samples": 11,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:39.013938+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20161101_20161130.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2016/11/goes15/netcdf/g15_epead_e13ew_5m_20161101_20161130.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2016/11/goes15/netcdf/g15_epead_e13ew_5m_20161101_20161130.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:30.929989+00:00",
+      "size_bytes": 912564,
+      "sha256": "ed3d3a0e28abfe35dee18677ddd6ce6d6977a651d8e2d44537c6167e4913331d",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8640,
+        "absent_grid_records": 0,
+        "first_time_utc": "2016-11-01T00:00:00+00:00",
+        "last_time_utc": "2016-11-30T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8636,
+            "invalid_samples": 4,
+            "nonzero_quality_samples": 4,
+            "fill_flux_samples": 4,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8636,
+            "invalid_samples": 4,
+            "nonzero_quality_samples": 4,
+            "fill_flux_samples": 4,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:39.011740+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20161201_20161231.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2016/12/goes15/netcdf/g15_epead_e13ew_5m_20161201_20161231.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2016/12/goes15/netcdf/g15_epead_e13ew_5m_20161201_20161231.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:32.054962+00:00",
+      "size_bytes": 942532,
+      "sha256": "143cc494e7aa235ae54351f97978f24e902b8155bb7231735c85d4cd3bdf2868",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2016-12-01T00:00:00+00:00",
+        "last_time_utc": "2016-12-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8922,
+            "invalid_samples": 6,
+            "nonzero_quality_samples": 6,
+            "fill_flux_samples": 6,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8922,
+            "invalid_samples": 6,
+            "nonzero_quality_samples": 6,
+            "fill_flux_samples": 6,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:39.109291+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20170101_20170131.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2017/01/goes15/netcdf/g15_epead_e13ew_5m_20170101_20170131.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2017/01/goes15/netcdf/g15_epead_e13ew_5m_20170101_20170131.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:38.623327+00:00",
+      "size_bytes": 942532,
+      "sha256": "fcb8206eaba082f68bf2a5f555f60930dcf3868072b9ce1579f4edbf904c7648",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2017-01-01T00:00:00+00:00",
+        "last_time_utc": "2017-01-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8924,
+            "invalid_samples": 4,
+            "nonzero_quality_samples": 4,
+            "fill_flux_samples": 4,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8924,
+            "invalid_samples": 4,
+            "nonzero_quality_samples": 4,
+            "fill_flux_samples": 4,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:39.172602+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20170201_20170228.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2017/02/goes15/netcdf/g15_epead_e13ew_5m_20170201_20170228.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2017/02/goes15/netcdf/g15_epead_e13ew_5m_20170201_20170228.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:40.675130+00:00",
+      "size_bytes": 852628,
+      "sha256": "882ca3eb7b22a6155f898543cef3cb4967949bcc8c609c5eef5ae3e74bd8b0cd",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8064,
+        "expected_rows": 8064,
+        "absent_grid_records": 0,
+        "first_time_utc": "2017-02-01T00:00:00+00:00",
+        "last_time_utc": "2017-02-28T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8057,
+            "invalid_samples": 7,
+            "nonzero_quality_samples": 7,
+            "fill_flux_samples": 7,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8057,
+            "invalid_samples": 7,
+            "nonzero_quality_samples": 7,
+            "fill_flux_samples": 7,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:39.278990+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20170301_20170331.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2017/03/goes15/netcdf/g15_epead_e13ew_5m_20170301_20170331.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2017/03/goes15/netcdf/g15_epead_e13ew_5m_20170301_20170331.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:44.185421+00:00",
+      "size_bytes": 942532,
+      "sha256": "ded53416fb0bde132945026a5d7bae014945a53c9b178bb53b55bc0b3691e68e",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2017-03-01T00:00:00+00:00",
+        "last_time_utc": "2017-03-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8919,
+            "invalid_samples": 9,
+            "nonzero_quality_samples": 9,
+            "fill_flux_samples": 9,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8919,
+            "invalid_samples": 9,
+            "nonzero_quality_samples": 9,
+            "fill_flux_samples": 9,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:39.237860+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20170401_20170430.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2017/04/goes15/netcdf/g15_epead_e13ew_5m_20170401_20170430.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2017/04/goes15/netcdf/g15_epead_e13ew_5m_20170401_20170430.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:35.802606+00:00",
+      "size_bytes": 912564,
+      "sha256": "576d93eca94e5949a2b2fe3d899a48e7687b9374f16cecc0ffc67bda0d720d4c",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8640,
+        "absent_grid_records": 0,
+        "first_time_utc": "2017-04-01T00:00:00+00:00",
+        "last_time_utc": "2017-04-30T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8567,
+            "invalid_samples": 73,
+            "nonzero_quality_samples": 73,
+            "fill_flux_samples": 73,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8567,
+            "invalid_samples": 73,
+            "nonzero_quality_samples": 73,
+            "fill_flux_samples": 73,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:39.326176+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20170501_20170531.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2017/05/goes15/netcdf/g15_epead_e13ew_5m_20170501_20170531.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2017/05/goes15/netcdf/g15_epead_e13ew_5m_20170501_20170531.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:39.084534+00:00",
+      "size_bytes": 942532,
+      "sha256": "858f6a223353353e5437952984d3e103376c39fbf23a00358af8674fa5511874",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2017-05-01T00:00:00+00:00",
+        "last_time_utc": "2017-05-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8865,
+            "invalid_samples": 63,
+            "nonzero_quality_samples": 63,
+            "fill_flux_samples": 63,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8865,
+            "invalid_samples": 63,
+            "nonzero_quality_samples": 63,
+            "fill_flux_samples": 63,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:39.369158+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20170601_20170630.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2017/06/goes15/netcdf/g15_epead_e13ew_5m_20170601_20170630.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2017/06/goes15/netcdf/g15_epead_e13ew_5m_20170601_20170630.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:42.348279+00:00",
+      "size_bytes": 912564,
+      "sha256": "5582a625f480bf96c4584ae7d21b8568868aca45f718d735834881c8cbef3680",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8640,
+        "absent_grid_records": 0,
+        "first_time_utc": "2017-06-01T00:00:00+00:00",
+        "last_time_utc": "2017-06-30T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8410,
+            "invalid_samples": 230,
+            "nonzero_quality_samples": 230,
+            "fill_flux_samples": 230,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8410,
+            "invalid_samples": 230,
+            "nonzero_quality_samples": 230,
+            "fill_flux_samples": 230,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:39.416686+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20170701_20170731.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2017/07/goes15/netcdf/g15_epead_e13ew_5m_20170701_20170731.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2017/07/goes15/netcdf/g15_epead_e13ew_5m_20170701_20170731.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:45.251561+00:00",
+      "size_bytes": 942532,
+      "sha256": "1b09a49a9b8ae3f3e909192bf4b47879fb045663f0bd920caa2b6ebddd87bfa7",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2017-07-01T00:00:00+00:00",
+        "last_time_utc": "2017-07-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8913,
+            "invalid_samples": 15,
+            "nonzero_quality_samples": 15,
+            "fill_flux_samples": 15,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8913,
+            "invalid_samples": 15,
+            "nonzero_quality_samples": 15,
+            "fill_flux_samples": 15,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:39.445022+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20170801_20170831.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2017/08/goes15/netcdf/g15_epead_e13ew_5m_20170801_20170831.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2017/08/goes15/netcdf/g15_epead_e13ew_5m_20170801_20170831.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:44.718270+00:00",
+      "size_bytes": 942532,
+      "sha256": "116ca60565309bd380f9c5ef0ed471a0adc6e0f577f31953cb9024330b2a4993",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2017-08-01T00:00:00+00:00",
+        "last_time_utc": "2017-08-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8590,
+            "invalid_samples": 338,
+            "nonzero_quality_samples": 338,
+            "fill_flux_samples": 338,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8590,
+            "invalid_samples": 338,
+            "nonzero_quality_samples": 338,
+            "fill_flux_samples": 338,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:39.486788+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20170901_20170930.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2017/09/goes15/netcdf/g15_epead_e13ew_5m_20170901_20170930.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2017/09/goes15/netcdf/g15_epead_e13ew_5m_20170901_20170930.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:45.635617+00:00",
+      "size_bytes": 912564,
+      "sha256": "e8de0d27a7daf1d74d8c5cabc2ab58e8c2548bdef60a823e89cbfcb8f086da08",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8640,
+        "absent_grid_records": 0,
+        "first_time_utc": "2017-09-01T00:00:00+00:00",
+        "last_time_utc": "2017-09-30T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8635,
+            "invalid_samples": 5,
+            "nonzero_quality_samples": 5,
+            "fill_flux_samples": 5,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8635,
+            "invalid_samples": 5,
+            "nonzero_quality_samples": 5,
+            "fill_flux_samples": 5,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:39.526168+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20171001_20171031.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2017/10/goes15/netcdf/g15_epead_e13ew_5m_20171001_20171031.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2017/10/goes15/netcdf/g15_epead_e13ew_5m_20171001_20171031.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:47.707842+00:00",
+      "size_bytes": 942532,
+      "sha256": "768e2decb1cb4e3b9dadac5f613f2cde17049b0cdea017f9c864b3f3ecc6cc68",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2017-10-01T00:00:00+00:00",
+        "last_time_utc": "2017-10-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8921,
+            "invalid_samples": 7,
+            "nonzero_quality_samples": 7,
+            "fill_flux_samples": 7,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8921,
+            "invalid_samples": 7,
+            "nonzero_quality_samples": 7,
+            "fill_flux_samples": 7,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:39.570156+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20171101_20171130.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2017/11/goes15/netcdf/g15_epead_e13ew_5m_20171101_20171130.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2017/11/goes15/netcdf/g15_epead_e13ew_5m_20171101_20171130.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:48.166928+00:00",
+      "size_bytes": 912564,
+      "sha256": "8854031a8c23113259d52895a3bb8e1df2891984caa5d6302591ec48adab9541",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8640,
+        "expected_rows": 8640,
+        "absent_grid_records": 0,
+        "first_time_utc": "2017-11-01T00:00:00+00:00",
+        "last_time_utc": "2017-11-30T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8576,
+            "invalid_samples": 64,
+            "nonzero_quality_samples": 64,
+            "fill_flux_samples": 64,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8576,
+            "invalid_samples": 64,
+            "nonzero_quality_samples": 64,
+            "fill_flux_samples": 64,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:39.573988+00:00"
+    },
+    "data/raw/goes15/g15_epead_e13ew_5m_20171201_20171231.nc": {
+      "source_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2017/12/goes15/netcdf/g15_epead_e13ew_5m_20171201_20171231.nc",
+      "final_url": "https://www.ncei.noaa.gov/data/goes-space-environment-monitor/access/avg/2017/12/goes15/netcdf/g15_epead_e13ew_5m_20171201_20171231.nc",
+      "retrieved_at_utc": "2026-10-27T06:40:49.101185+00:00",
+      "size_bytes": 942532,
+      "sha256": "08dccba368d573a4d90a8fe5166040650a27213ad35c928914b63b71b40aeeab",
+      "validation": {
+        "format": "NetCDF-3 classic",
+        "rows": 8928,
+        "expected_rows": 8928,
+        "absent_grid_records": 0,
+        "first_time_utc": "2017-12-01T00:00:00+00:00",
+        "last_time_utc": "2017-12-31T23:55:00+00:00",
+        "cadence_seconds": 300,
+        "label_offset_seconds": 0.0,
+        "time_units": "milliseconds since 1970-01-01 00:00:00.0 UTC",
+        "sensors": {
+          "E2E": {
+            "valid_samples": 8923,
+            "invalid_samples": 5,
+            "nonzero_quality_samples": 5,
+            "fill_flux_samples": 5,
+            "flux_units": "e/(cm^2 s sr)"
+          },
+          "E2W": {
+            "valid_samples": 8923,
+            "invalid_samples": 5,
+            "nonzero_quality_samples": 5,
+            "fill_flux_samples": 5,
+            "flux_units": "e/(cm^2 s sr)"
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:39.632095+00:00"
+    },
+    "data/raw/omni2/omni2_2012.dat": {
+      "source_url": "https://spdf.gsfc.nasa.gov/pub/data/omni/low_res_omni/omni2_2012.dat",
+      "final_url": "https://spdf.gsfc.nasa.gov/pub/data/omni/low_res_omni/omni2_2012.dat",
+      "retrieved_at_utc": "2026-10-27T06:40:48.896017+00:00",
+      "size_bytes": 2881152,
+      "sha256": "342612e8ed98fcc5952e4f33e3de92c657d6682728722716d68930b981f87faf",
+      "validation": {
+        "format": "ASCII numeric, 55 columns",
+        "rows": 8784,
+        "first_time_utc": "2012-01-01T00:00:00+00:00",
+        "last_time_utc": "2012-12-31T23:00:00+00:00",
+        "cadence_seconds": 3600,
+        "fields": {
+          "bz_gsm": {
+            "column_1_based": 17,
+            "fill_value": 999.9,
+            "observed_rows": 8784,
+            "missing_rows": 0
+          },
+          "v_sw": {
+            "column_1_based": 25,
+            "fill_value": 9999.0,
+            "observed_rows": 8780,
+            "missing_rows": 4
+          },
+          "dst_nt": {
+            "column_1_based": 41,
+            "fill_value": 99999.0,
+            "observed_rows": 8784,
+            "missing_rows": 0
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:39.861047+00:00"
+    },
+    "data/raw/omni2/omni2_2013.dat": {
+      "source_url": "https://spdf.gsfc.nasa.gov/pub/data/omni/low_res_omni/omni2_2013.dat",
+      "final_url": "https://spdf.gsfc.nasa.gov/pub/data/omni/low_res_omni/omni2_2013.dat",
+      "retrieved_at_utc": "2026-10-27T06:40:51.208037+00:00",
+      "size_bytes": 2873280,
+      "sha256": "46db595b661833960638cb1c44a9c90df55769907bdf1473ad5d9feb68e3d0d9",
+      "validation": {
+        "format": "ASCII numeric, 55 columns",
+        "rows": 8760,
+        "first_time_utc": "2013-01-01T00:00:00+00:00",
+        "last_time_utc": "2013-12-31T23:00:00+00:00",
+        "cadence_seconds": 3600,
+        "fields": {
+          "bz_gsm": {
+            "column_1_based": 17,
+            "fill_value": 999.9,
+            "observed_rows": 8760,
+            "missing_rows": 0
+          },
+          "v_sw": {
+            "column_1_based": 25,
+            "fill_value": 9999.0,
+            "observed_rows": 8760,
+            "missing_rows": 0
+          },
+          "dst_nt": {
+            "column_1_based": 41,
+            "fill_value": 99999.0,
+            "observed_rows": 8760,
+            "missing_rows": 0
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:40.038524+00:00"
+    },
+    "data/raw/omni2/omni2_2014.dat": {
+      "source_url": "https://spdf.gsfc.nasa.gov/pub/data/omni/low_res_omni/omni2_2014.dat",
+      "final_url": "https://spdf.gsfc.nasa.gov/pub/data/omni/low_res_omni/omni2_2014.dat",
+      "retrieved_at_utc": "2026-10-27T06:40:57.181646+00:00",
+      "size_bytes": 2873280,
+      "sha256": "8078580877128e53904084bf22cd712b347deb33c8db5133876baa19be2f57c0",
+      "validation": {
+        "format": "ASCII numeric, 55 columns",
+        "rows": 8760,
+        "first_time_utc": "2014-01-01T00:00:00+00:00",
+        "last_time_utc": "2014-12-31T23:00:00+00:00",
+        "cadence_seconds": 3600,
+        "fields": {
+          "bz_gsm": {
+            "column_1_based": 17,
+            "fill_value": 999.9,
+            "observed_rows": 8760,
+            "missing_rows": 0
+          },
+          "v_sw": {
+            "column_1_based": 25,
+            "fill_value": 9999.0,
+            "observed_rows": 8760,
+            "missing_rows": 0
+          },
+          "dst_nt": {
+            "column_1_based": 41,
+            "fill_value": 99999.0,
+            "observed_rows": 8760,
+            "missing_rows": 0
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:40.081927+00:00"
+    },
+    "data/raw/omni2/omni2_2015.dat": {
+      "source_url": "https://spdf.gsfc.nasa.gov/pub/data/omni/low_res_omni/omni2_2015.dat",
+      "final_url": "https://spdf.gsfc.nasa.gov/pub/data/omni/low_res_omni/omni2_2015.dat",
+      "retrieved_at_utc": "2026-10-27T06:40:56.294348+00:00",
+      "size_bytes": 2873280,
+      "sha256": "aaa291634e011715066ddcf59028e4db16d92495ebca88e4ac034edd1f0f4b19",
+      "validation": {
+        "format": "ASCII numeric, 55 columns",
+        "rows": 8760,
+        "first_time_utc": "2015-01-01T00:00:00+00:00",
+        "last_time_utc": "2015-12-31T23:00:00+00:00",
+        "cadence_seconds": 3600,
+        "fields": {
+          "bz_gsm": {
+            "column_1_based": 17,
+            "fill_value": 999.9,
+            "observed_rows": 8760,
+            "missing_rows": 0
+          },
+          "v_sw": {
+            "column_1_based": 25,
+            "fill_value": 9999.0,
+            "observed_rows": 8760,
+            "missing_rows": 0
+          },
+          "dst_nt": {
+            "column_1_based": 41,
+            "fill_value": 99999.0,
+            "observed_rows": 8760,
+            "missing_rows": 0
+          }
+        },
+        "dst_sanity_check": {
+          "status": "pass",
+          "minimum_nt": -234.0,
+          "day_of_year": 76,
+          "hour": 22
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:40.041467+00:00"
+    },
+    "data/raw/omni2/omni2_2016.dat": {
+      "source_url": "https://spdf.gsfc.nasa.gov/pub/data/omni/low_res_omni/omni2_2016.dat",
+      "final_url": "https://spdf.gsfc.nasa.gov/pub/data/omni/low_res_omni/omni2_2016.dat",
+      "retrieved_at_utc": "2026-10-27T06:40:53.014773+00:00",
+      "size_bytes": 2881152,
+      "sha256": "9a2be4f3e975ff307fcfcca5fc1a5d4cb9f04942a0aae47d9c3529303b51c51e",
+      "validation": {
+        "format": "ASCII numeric, 55 columns",
+        "rows": 8784,
+        "first_time_utc": "2016-01-01T00:00:00+00:00",
+        "last_time_utc": "2016-12-31T23:00:00+00:00",
+        "cadence_seconds": 3600,
+        "fields": {
+          "bz_gsm": {
+            "column_1_based": 17,
+            "fill_value": 999.9,
+            "observed_rows": 8783,
+            "missing_rows": 1
+          },
+          "v_sw": {
+            "column_1_based": 25,
+            "fill_value": 9999.0,
+            "observed_rows": 8784,
+            "missing_rows": 0
+          },
+          "dst_nt": {
+            "column_1_based": 41,
+            "fill_value": 99999.0,
+            "observed_rows": 8784,
+            "missing_rows": 0
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:40.376396+00:00"
+    },
+    "data/raw/omni2/omni2_2017.dat": {
+      "source_url": "https://spdf.gsfc.nasa.gov/pub/data/omni/low_res_omni/omni2_2017.dat",
+      "final_url": "https://spdf.gsfc.nasa.gov/pub/data/omni/low_res_omni/omni2_2017.dat",
+      "retrieved_at_utc": "2026-10-27T06:40:54.797525+00:00",
+      "size_bytes": 2873280,
+      "sha256": "b53494bc4fa719da1a5e6914c93307d2c9cfa1fa77abb3883e5925bfc9e0b3bc",
+      "validation": {
+        "format": "ASCII numeric, 55 columns",
+        "rows": 8760,
+        "first_time_utc": "2017-01-01T00:00:00+00:00",
+        "last_time_utc": "2017-12-31T23:00:00+00:00",
+        "cadence_seconds": 3600,
+        "fields": {
+          "bz_gsm": {
+            "column_1_based": 17,
+            "fill_value": 999.9,
+            "observed_rows": 8728,
+            "missing_rows": 32
+          },
+          "v_sw": {
+            "column_1_based": 25,
+            "fill_value": 9999.0,
+            "observed_rows": 8754,
+            "missing_rows": 6
+          },
+          "dst_nt": {
+            "column_1_based": 41,
+            "fill_value": 99999.0,
+            "observed_rows": 8760,
+            "missing_rows": 0
+          }
+        }
+      },
+      "last_verified_at_utc": "2026-10-27T06:41:40.375201+00:00"
+    }
+  },
+  "status": "complete",
+  "last_successful_run": {
+    "goes_files": 72,
+    "omni_files": 6,
+    "goes_rows": 630432,
+    "omni_rows": 52608,
+    "total_bytes": 83828456,
+    "downloaded_this_run": 0,
+    "verified_existing_this_run": 78,
+    "completed_at_utc": "2026-10-27T06:41:40.405399+00:00",
+    "mode": "verify-only",
+    "goes_absent_grid_records": 864
+  }
+}

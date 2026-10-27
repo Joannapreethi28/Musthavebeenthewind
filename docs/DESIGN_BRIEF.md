@@ -1,5 +1,7 @@
 # DESIGN_BRIEF.md — results page & screenshots
 
+> Production correction: use the measured corrected diurnal baseline from metrics.json, not the preliminary hard-coded marker below. See PROTOCOL_AMENDMENTS.md. No impeccable/frontend-design skill was available; the local Sites workflow and this design brief guide the offline report.
+
 Load the `impeccable` skill if your session has it (else `frontend-design`) **before** writing any UI. This brief is the floor.
 
 ## 1. Purpose & audience

@@ -1,5 +1,7 @@
 # DATA_SPEC.md — verified data facts
 
+> Production implementation: [PROTOCOL_AMENDMENTS.md](PROTOCOL_AMENDMENTS.md) supersedes the E/W average, timestamp uncertainty and preliminary acceptance thresholds below. Use E-only flux, explicit hour-end availability and timestamp-based aggregation of sparse records.
+
 Everything marked **[probe]** was measured on the real files while writing this spec (Oct 2026). Everything else is from the file metadata / the OMNI format document.
 
 ## 1. Flux: GOES-15 EPEAD, 5-minute files

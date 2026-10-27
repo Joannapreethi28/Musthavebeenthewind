@@ -1,6 +1,6 @@
 **Implementation plan: 12-hour GEO electron-flux forecasting**
 
-Prepared 25 October 2026 against commit `597083f`. The user authorized execution beginning with Step 1. Environment setup has passed; see [ENVIRONMENT_SETUP.md](ENVIRONMENT_SETUP.md). Data downloading, the data pipeline, model training, and the report have not begun. This document supplements the original `PLAN.md`; the methodological amendments below will be incorporated before the data/model stages.
+Prepared 25 October 2026 against commit `597083f`. This is the planning record. Execution was authorized for the whole project on 27 October; [PROTOCOL_AMENDMENTS.md](PROTOCOL_AMENDMENTS.md) records the implemented scientific corrections. Environment, download, dataset and baseline gates have passed; the three-seed LSTM experiment is running. Final status and results will be generated in README.md and results/acceptance.json. Earlier statements about work not yet begun below describe the planning session, not current status.
 
 **1. Intended outcome.** Deliver a reproducible course project that uses 72 hours of GOES-15 electron flux and OMNI observations to predict the next 12-hour change in log10 flux. Deliver the required LSTM, two fair baselines, measured results, four scientific figures, an offline report, five screenshots, and a README that both students can explain. Add the optional Transformer only after the core experiment works and its measured runtime fits the remaining budget.
 

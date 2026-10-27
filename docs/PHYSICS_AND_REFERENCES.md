@@ -1,5 +1,7 @@
 # PHYSICS_AND_REFERENCES.md — what the students must understand, and what may be cited
 
+> Production bibliography additions and corrections are documented in [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) and [PROTOCOL_AMENDMENTS.md](PROTOCOL_AMENDMENTS.md). Rodriguez et al. (2025), DOI 10.1029/2024SW004228, and Baker et al. (2019), DOI 10.1029/2019JA027331, are included for the E-only detector decision. The planning review confirmed Sun et al.'s twelve-hour LSTM PE of 0.554 and distinguished Balikhin et al.'s raw-flux from log-flux metrics. Those literature scores are context only; final comparisons use our own measured baselines.
+
 ## 1. The causal chain (one screen)
 ```
 coronal hole -> fast solar wind (V up) ──┐

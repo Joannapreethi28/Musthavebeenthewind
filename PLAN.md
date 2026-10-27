@@ -1,5 +1,7 @@
 # PLAN.md — 12-hour GEO electron-flux forecaster (LSTM / Transformer)
 
+> Production implementation: [protocol amendments](docs/PROTOCOL_AMENDMENTS.md) supersede conflicting preliminary rules and thresholds below. Measured diagnostics are in `results/data_quality.json` and `results/baselines.json`.
+
 > Contract for the build. Numbers marked **[probe]** were measured on real data while writing this plan (see `reference/probe_baselines.py`). The real pipeline must reproduce them within ±0.01 — if not, there is a bug.
 
 ## 1. Problem (what & why)

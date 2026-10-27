@@ -1,0 +1,99 @@
+{
+  "contract": "e-only-hour-end-v1",
+  "rows": 52608,
+  "feature_order": [
+    "log_flux",
+    "v_sw",
+    "bz_gsm",
+    "dst_nt",
+    "sin_lt",
+    "cos_lt"
+  ],
+  "observed_flux_coverage": {
+    "2012": 0.9889571948998178,
+    "2013": 0.9993150684931507,
+    "2014": 0.9952054794520548,
+    "2015": 0.9915525114155251,
+    "2016": 0.9960154826958105,
+    "2017": 0.9932648401826484
+  },
+  "floored_hours": 1092,
+  "diurnal_mean_logflux": [
+    1.864770556741539,
+    1.887492228022568,
+    1.933533254704253,
+    2.003961759669899,
+    2.0883691363159596,
+    2.1972820540784546,
+    2.3007539667585317,
+    2.394555706273228,
+    2.473997655156383,
+    2.5320827785282662,
+    2.571202821844883,
+    2.58124105928399,
+    2.566289546706003,
+    2.526323782768608,
+    2.4560782130707803,
+    2.364885100807796,
+    2.2634889664819253,
+    2.159985442648532,
+    2.071338668333125,
+    1.9868364322076388,
+    1.9177458545932906,
+    1.8753453890106244,
+    1.8539813058012717,
+    1.8488796687709745
+  ],
+  "diurnal_amplitude": 0.7323613905130155,
+  "diurnal_peak_bin": 11,
+  "exclusions": {
+    "train": {
+      "candidate_issue_hours": 35063,
+      "target_outside_split": 12,
+      "insufficient_history": 71,
+      "unobserved_anchor": 219,
+      "unobserved_target": 138,
+      "missing_history": 603,
+      "future_interpolation": 0,
+      "accepted": 34020
+    },
+    "val": {
+      "candidate_issue_hours": 8784,
+      "target_outside_split": 12,
+      "insufficient_history": 0,
+      "unobserved_anchor": 35,
+      "unobserved_target": 21,
+      "missing_history": 67,
+      "future_interpolation": 1,
+      "accepted": 8648
+    },
+    "test": {
+      "candidate_issue_hours": 8760,
+      "target_outside_split": 12,
+      "insufficient_history": 0,
+      "unobserved_anchor": 59,
+      "unobserved_target": 40,
+      "missing_history": 387,
+      "future_interpolation": 0,
+      "accepted": 8262
+    }
+  },
+  "normalization": {
+    "mean": [
+      2.1964873677831527,
+      410.1036253173222,
+      -0.08540341670707008,
+      -13.37903202806377
+    ],
+    "std": [
+      1.0538341923446728,
+      88.35447861712048,
+      3.1889259580009655,
+      19.379996208465823
+    ],
+    "fit": "unique train-available hours"
+  },
+  "dst_2015_min": -234.0,
+  "original_probe_thresholds": "Historical E/W thresholds are diagnostic only; E-only, observed labels, causal complete windows define v1.",
+  "data_manifest_sha256": "fea9fb33d2c7140703f34b9fee882b2305daa73d523f867c7a0beee7f2d086b0"
+}
