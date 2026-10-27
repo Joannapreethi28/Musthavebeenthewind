@@ -1,2 +1,6 @@
-# Preserve artifact bytes across checkouts: provenance hashes include line endings.
-* -text
+# Preserve measured artifact/source bytes; allow ordinary docs to use native endings.
+* text=auto whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/src/** -text
+/results/** -text
+/report/** -text
+/README.md -text
