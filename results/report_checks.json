@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "values_checked": 34,
+  "index_sha256": "497779fbe6ca5d00956a66573bf64cbe3dd88a3f814b2c84f66be4847f280dd8",
+  "style_sha256": "49355cd33147c77b10f94898424853df743d242a3a7586a0a0071aafdc27ba94",
+  "metrics_sha256": "e0fa82e4bff6c4e8a8f408f7671a3dc17d3d8f525b49081c989ec5ccb2208f2d",
+  "desktop_viewport": [
+    1440,
+    900
+  ],
+  "section_device_scale_factor": 2,
+  "mobile_width": 390,
+  "mobile_no_overflow": true,
+  "runtime_network_requests": [],
+  "page_errors": [],
+  "captures": {
+    "01_storm.png": {
+      "width": 2240,
+      "height": 1716,
+      "sha256": "66961ec62eb632c6ef74b939733bde2df028740eaca67b32c4832cc259a10eb5"
+    },
+    "02_scoreboard.png": {
+      "width": 2240,
+      "height": 1954,
+      "sha256": "1fed2d707d43fde45b3365b6f7b014f6f8c6e99dad11b81b0b0ec0407aea54cf"
+    },
+    "03_diurnal.png": {
+      "width": 2240,
+      "height": 1402,
+      "sha256": "31044e97797635a8f6b3e71139eb8b997d7c907d5322be6f70fde105d3681e8a"
+    },
+    "04_method.png": {
+      "width": 2240,
+      "height": 2170,
+      "sha256": "6c3a2ae6129cf363774c55cfe07bdd9e0b172b24ebcce805e37a22b8ccab508d"
+    },
+    "social.png": {
+      "width": 1200,
+      "height": 630,
+      "sha256": "5b2d9d212f194a78189d12eeb6b28a392fda1f64d9b8315fede7188d0d60e9e9"
+    }
+  }
+}

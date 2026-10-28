@@ -40,6 +40,9 @@ def run() -> None:
     def svg(name):
         content = (RESULTS / f'figs/{name}.svg').read_text(encoding='utf-8')
         return content[content.index('<svg'):]
+    def chart(content):
+        return ('<div class="chart-scroll" tabindex="0" role="region" aria-label="Scrollable scientific chart">'
+                + content + '</div><p class="chart-hint">Scroll the chart horizontally to read every label.</p>')
     improved = m['comparison']['mean_pe_improvement'] > 0
     conclusion = 'The LSTM improves on the daily-cycle baseline.' if improved else 'The daily-cycle baseline remains the stronger forecast.'
     qualification = 'All three seeds improve on the diurnal baseline.' if m['comparison']['all_seeds_beat_diurnal'] else 'Seed-level differences are reported in the saved metrics; the mean alone does not describe every run.'
@@ -61,16 +64,16 @@ def run() -> None:
 <aside class="result-note"><p class="label">LSTM · {n('meta.test_year','d')} test PE</p>
 <p class="big-score">{n('models.lstm.test.aggregate.pe.mean')} <span class="uncertainty">± {n('models.lstm.test.aggregate.pe.std')}</span></p>
 <p class="note">Mean ± sample SD across {n('meta.seed_count','d')} seeds.<br>Diurnal baseline: {n('models.persistence_diurnal.test.pe')} PE.</p></aside></div>
-<div class="figure-row"><figure role="img" aria-label="Observed and predicted electron flux during September 2017">{storm}<figcaption>01 / The September storm window. Every forecast uses only history available at its issue time. Lines show seed {n('meta.representative_seed','d')}; gaps preserve excluded hours.</figcaption></figure>
+<div class="figure-row"><figure aria-label="Observed and predicted electron flux during September 2017">{chart(storm)}<figcaption>01 / The September storm window. Every forecast uses only history available at its issue time. Lines show seed {n('meta.representative_seed','d')}; gaps preserve excluded hours.</figcaption></figure>
 <aside class="caption"><span class="label">The finding</span>{conclusion}<p class="note">Mean PE difference: {n('comparison.mean_pe_improvement','+.3f')}. Scores cover the full eligible test year, not only this storm.</p></aside></div></section>
 <section id="s2" aria-labelledby="score-title"><div class="chapter-head"><span class="plate">02 / Skill</span><div><h2 id="score-title">The daily cycle sets the bar.</h2><p class="deck">Persistence carries today's flux forward. The stronger baseline adds a local-time correction learned only from training data.</p></div></div>
-{result_table(m)}<figure role="img" aria-label="Prediction efficiency for validation and test">{svg('02_scoreboard')}<figcaption>Bars show one sample standard deviation across seeds. Dashed markers use the measured diurnal baseline for each split. RMSE is in log₁₀ flux units. PE = 1 − squared error / observed variance sum.</figcaption></figure>
+{result_table(m)}<figure aria-label="Prediction efficiency for validation and test">{chart(svg('02_scoreboard'))}<figcaption>Bars show one sample standard deviation across seeds. Dashed markers use the measured diurnal baseline for each split. RMSE is in log₁₀ flux units. PE = 1 − squared error / observed variance sum.</figcaption></figure>
 <p class="note">Validation: {n('split_sizes.val',',d')} common samples. Test: {n('split_sizes.test',',d')} common samples. {qualification} No statistical significance claim is made.</p></section>
 <section id="s3" aria-labelledby="cycle-title"><div class="chapter-head"><span class="plate">03 / Rhythm</span><div><h2 id="cycle-title">A forecast crosses the daily cycle.</h2><p class="deck">The training flux peaks near local-time bin {n('data_quality.diurnal_peak_bin','d')}. Its peak-to-trough range is {n('data_quality.diurnal_amplitude')} log₁₀ units.</p></div></div>
-<figure role="img" aria-label="Training daily flux cycle and test error by local solar time">{svg('03_diurnal')}<figcaption>Local solar time uses the satellite's fixed reference longitude. The left curve uses observed training hours; the right uses the common test samples, grouped by target local time. This is local solar time, not magnetic local time.</figcaption></figure></section>
+<figure aria-label="Training daily flux cycle and test error by local solar time">{chart(svg('03_diurnal'))}<figcaption>Local solar time uses the satellite's fixed reference longitude. The left curve uses observed training hours; the right uses the common test samples, grouped by target local time. This is local solar time, not magnetic local time.</figcaption></figure></section>
 <section id="s4" aria-labelledby="method-title"><div class="chapter-head"><span class="plate">04 / Method</span><div><h2 id="method-title">Learn the change. Preserve the clock.</h2><p class="deck">A forecast is the observed current log-flux plus a predicted change. Time boundaries and missing observations are part of the model contract.</p></div></div>
 <div class="method-strip"><div><span class="label">01 / Observe</span><strong>GOES + OMNI</strong><p>E-detector flux, wind speed, Bz, Dst and local-time sine/cosine.</p></div><div><span class="label">02 / Window</span><strong>{n('meta.window_hours','d')} hours × 6</strong><p>Training-only normalization; causal short-gap interpolation.</p></div><div><span class="label">03 / Learn</span><strong>{n('meta.parameter_count',',d')} weights</strong><p>Two LSTM layers; best validation checkpoint per seed.</p></div><div><span class="label">04 / Forecast</span><strong>+{n('meta.horizon_hours','d')} hours</strong><p>Current observed log-flux + predicted Δ. Observed targets only.</p></div></div>
-<figure role="img" aria-label="Chronological splits and training curves for three seeds">{svg('04_method')}<figcaption>Training loss includes dropout; validation runs in evaluation mode. Dotted lines mark restored checkpoints. The test year is evaluated after all checkpoints and settings are frozen.</figcaption></figure>
+<figure aria-label="Chronological splits and training curves for three seeds">{chart(svg('04_method'))}<figcaption>Training loss includes dropout; validation runs in evaluation mode. Dotted lines mark restored checkpoints. The test year is evaluated after all checkpoints and settings are frozen.</figcaption></figure>
 <div class="limitations"><h3>Limitations</h3><div><p>{limitations}</p><p>The optional Transformer and tuning grid were omitted before test evaluation to keep this course experiment bounded.</p></div></div></section></main>
 <footer><p>Sources: <a href="https://www.ncei.noaa.gov/products/goes-1-15/space-weather-instruments">NOAA GOES</a> · <a href="https://omniweb.gsfc.nasa.gov/">NASA OMNI</a><br>Data contract: {escape(m['contract'])}</p><p><a href="../README.md">Reproduction notes</a> · <a href="../results/metrics.json">Measured metrics</a><br>Offline report · no runtime network requests</p></footer>
 <p class="screen-only-title">Share card / exported separately</p><div class="social-wrap"><article id="social" class="share-card" aria-label="Share card"><div><p class="eyebrow">GEO / FIELD NOTES · {n('meta.test_year','d')} TEST</p><h2>Twelve hours ahead at geostationary orbit.</h2><p class="note">{conclusion}</p></div><div class="share-result"><span class="label">LSTM test PE</span><div class="big-score">{n('models.lstm.test.aggregate.pe.mean')}</div><span class="note">Diurnal: {n('models.persistence_diurnal.test.pe')}<br>Mean of {n('meta.seed_count','d')} seeds</span></div><div class="share-chart">{storm}</div><p class="share-authors">Jabin Joseph M &amp; Joanna Preethi J · LICET · Neural Networks &amp; Deep Learning</p></article></div>
@@ -80,8 +83,10 @@ def run() -> None:
     write_viva(m, conclusion)
     save_json(RESULTS / 'report_manifest.json', {'metrics_sha256': digest(RESULTS / 'metrics.json'),
               'data_sha256': digest(ROOT / 'report/data.json'),
+              'render_source_sha256': {p.name: digest(p) for p in (ROOT / 'src/render_report.py', ROOT / 'src/figures.py')},
               'figure_sha256': {p.name: digest(p) for p in sorted((RESULTS / 'figs').glob('*'))},
-              'index_sha256': digest(ROOT / 'report/index.html'), 'readme_sha256': digest(ROOT / 'README.md')})
+              'index_sha256': digest(ROOT / 'report/index.html'), 'style_sha256': digest(ROOT / 'report/style.css'),
+              'readme_sha256': digest(ROOT / 'README.md')})
     print('PASS generated offline report, README and viva results from metrics.json.', flush=True)
 
 
@@ -106,6 +111,15 @@ PE is on log10 forecast levels (higher is better); RMSE is in log10 flux units (
 
 Run commands from the `source/` checkout in PowerShell. Python and Git must be installed. The current machine uses CPU PyTorch; exact verified dependencies are in `results/setup/requirements.freeze.txt`.
 
+To start a new experiment from a clone that already contains the published results, use a separate checkout and preserve its existing results first:
+
+```powershell
+if (Test-Path -LiteralPath results_published) {{ throw 'Choose a fresh checkout; results_published already exists.' }}
+Move-Item -LiteralPath results -Destination results_published
+```
+
+The next commands create a new local results directory. Keep the original checkout and its local checkpoints intact. For exact dependency versions, after setup install `results_published/setup/requirements.freeze.txt` using the new environment's pip; the CPU torch package is installed first by setup.
+
 ```powershell
 python scripts/setup_environment.py
 .\\.venv\\Scripts\\python.exe -m unittest discover -s tests -v
@@ -120,7 +134,7 @@ python scripts/setup_environment.py
 .\\.venv\\Scripts\\python.exe scripts/verify_project.py
 ```
 
-These are the fresh-experiment commands. Training refuses to run after `frozen_experiment.json` exists, protecting the held-out experiment. To reproduce training from scratch, use a separate clean checkout and a new local results directory; retain the published experiment. A completed local checkout can rerun evaluation, rendering and screenshots using its frozen checkpoints. Downloading skips validated files. Raw data, processed arrays, `.venv` and checkpoints are Git-ignored; reproduce them locally using these commands. The saved predictions allow metric verification without training or local checkpoints. Setup uses the recorded CPU torch release; for exact remaining dependency versions install the freeze file after torch. On Linux/macOS use `.venv/bin/python` in place of the Windows interpreter path.
+These are fresh-experiment commands. Training refuses to run after `frozen_experiment.json` exists, protecting the held-out experiment. A completed local checkout can rerun evaluation, rendering and screenshots using its frozen checkpoints. Downloading skips validated files. Raw data, processed arrays, `.venv` and checkpoints are Git-ignored; reproduce them locally using these commands. In an unmodified published checkout, `scripts/verify_project.py` verifies the saved predictions and artifacts without raw data or checkpoints. Exact retraining results can vary across hardware, package releases or archive revisions even with the same seeds. On Linux/macOS use `.venv/bin/python` in place of the Windows interpreter path.
 
 Screenshots use installed Microsoft Edge or Chrome when available; otherwise install Playwright Chromium with `.\\.venv\\Scripts\\python.exe -m playwright install chromium`. The HTML opens directly from disk and makes no network requests. The report has no build system or backend.
 

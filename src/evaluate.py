@@ -4,11 +4,11 @@ import sys
 import numpy as np
 import pandas as pd
 import torch
-from baselines import scores, historical_probe
+from baselines import scores, historical_probe, fit_diurnal
 from common import ROOT, RESULTS, CONTRACT, digest, provenance, read_json, save_json
 from data_validation import require
 from models import LSTMForecaster
-from train import tensors, predict, seed_all
+from train import CONFIG, tensors, predict, seed_all
 
 
 def aggregate(values: list[dict]) -> dict:
@@ -20,17 +20,34 @@ def aggregate(values: list[dict]) -> dict:
 def run() -> None:
     frozen = read_json(RESULTS / 'frozen_experiment.json')
     require(frozen['contract'] == CONTRACT, 'Contract mismatch')
+    require(frozen['config'] == CONFIG, 'Frozen configuration differs from the implemented experiment')
+    require(sorted(record['seed'] for record in frozen['runs']) == CONFIG['seeds'], 'Freeze must contain each planned seed exactly once')
     require(digest(ROOT / 'data/processed/dataset.npz') == frozen['provenance']['dataset_sha256'], 'Dataset changed after freeze')
+    require(digest(RESULTS / 'data_manifest.json') == frozen['provenance']['data_manifest_sha256'], 'Data manifest changed after freeze')
     for filename in ('build_dataset.py', 'baselines.py', 'train.py', 'models.py'):
         require(digest(ROOT / 'src' / filename) == frozen['provenance']['source_sha256'][filename], 'Scientific code changed after freeze')
     baseline = read_json(RESULTS / 'baselines.json')
     quality = read_json(RESULTS / 'data_quality.json')
+    require(baseline['contract'] == quality['contract'] == CONTRACT, 'Artifact contract mismatch')
+    # These JSON artifacts are editable: verify their training-derived values before scoring.
+    with np.load(ROOT / 'data/processed/dataset.npz') as data:
+        means, counts = fit_diurnal(data['raw'], data['lt'], data['train'])
+        np.testing.assert_array_equal(means, baseline['diurnal_means'])
+        np.testing.assert_array_equal(counts, baseline['diurnal_counts'])
+        normalization = {'mean': data['mean'].tolist(), 'std': data['std'].tolist()}
+        for split in ('train', 'val', 'test'):
+            require(len(data[split]) == quality['exclusions'][split]['accepted'], 'Quality sample counts disagree with frozen data')
     seed_all(0)
     models = []
     for record in frozen['runs']:
+        require(record['contract'] == CONTRACT and record['config'] == frozen['config'], 'Run configuration differs from freeze')
+        require(record['normalization'] == normalization, 'Run normalization differs from frozen data')
+        require(record['provenance']['dataset_sha256'] == frozen['provenance']['dataset_sha256'], 'Run used a different dataset')
         path = ROOT / 'checkpoints' / f'lstm_seed{record["seed"]}.pt'
         require(digest(path) == record['checkpoint_sha256'], 'Frozen checkpoint changed')
         saved = torch.load(path, map_location='cpu', weights_only=True)
+        require(saved['contract'] == CONTRACT and saved['config'] == frozen['config'] and saved['seed'] == record['seed'], 'Checkpoint metadata differs from freeze')
+        require(saved['normalization'] == normalization, 'Checkpoint normalization differs from frozen data')
         model = LSTMForecaster()
         model.load_state_dict(saved['state_dict'])
         models.append((record['seed'], model))
@@ -59,6 +76,8 @@ def run() -> None:
                                   'obs': observed, 'persistence': current, 'persistence_diurnal': current + correction})
             for name in ('persistence', 'persistence_diurnal'):
                 metrics['models'][name][split] = scores(observed, frame[name].to_numpy())
+                if split == 'val':
+                    require(metrics['models'][name][split] == baseline['val'][name], 'Validation baseline changed since the training gate')
             x, _ = tensors(data, split)
             seed_scores = []
             for seed, model in models:

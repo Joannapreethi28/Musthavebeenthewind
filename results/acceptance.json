@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "checks": [
+    "val: common timestamps, observed targets, forecast horizon, per-seed and baseline scores, mean/sample SD",
+    "test: common timestamps, observed targets, forecast horizon, per-seed and baseline scores, mean/sample SD",
+    "README/report values, figures, screenshots, offline browser and mobile layout",
+    "Every local sample has observed labels and causal complete history; train statistics invariant to future perturbation"
+  ],
+  "metrics_sha256": "e0fa82e4bff6c4e8a8f408f7671a3dc17d3d8f525b49081c989ec5ccb2208f2d",
+  "test_samples": 8262,
+  "overfit_mse": 0.007055120076984167
+}

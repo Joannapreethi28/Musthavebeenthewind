@@ -1,0 +1,21 @@
+{
+  "metrics_sha256": "e0fa82e4bff6c4e8a8f408f7671a3dc17d3d8f525b49081c989ec5ccb2208f2d",
+  "data_sha256": "9e5cf0e5398090c3840eb537cfc8f76960f452c6a3801ec6a8fd03882b11d636",
+  "render_source_sha256": {
+    "render_report.py": "099a363cf16ad5e30384913259b3a5648e60de85fc2111722cde13c529432fad",
+    "figures.py": "2791cd69d8b571c5104abdcc1cbc04b4ae5a857df66c775e84a25f217d5879b5"
+  },
+  "figure_sha256": {
+    "01_storm.png": "fedd162635d62f86b7bfd4e24ef0ee0f3c0d238ba2a0c6fd4b8e9f574920bbf6",
+    "01_storm.svg": "f2df0e7de3231ea322bff431e505aa9747d14236c6521d3937b8ed4e8510f6be",
+    "02_scoreboard.png": "89c7eff4d44fc9bcd86316a9f53d78e6dafd59832db97ed9276d398d869b61c0",
+    "02_scoreboard.svg": "c47cd72acd45f6d0ff6f12fae6a4fb634b5837c0021c17df9f97650e86b02d5e",
+    "03_diurnal.png": "57a069b7d7c2b094ae4995c8ccf954eb4322f4108111a984a35b4b913af8f19e",
+    "03_diurnal.svg": "e1a06f0c1d3820e2543d5bb8ee1b73dd190343081be7005e502c06b83ebc793b",
+    "04_method.png": "cbdaae02cb90ad6b7928e0c2efae0eb4280a7eca80112d05079d2d86f96ac0ac",
+    "04_method.svg": "72a663a087b6e178c6ef4617e5a2464d7e8a7e6b881a4d3614dfb664548490db"
+  },
+  "index_sha256": "497779fbe6ca5d00956a66573bf64cbe3dd88a3f814b2c84f66be4847f280dd8",
+  "style_sha256": "49355cd33147c77b10f94898424853df743d242a3a7586a0a0071aafdc27ba94",
+  "readme_sha256": "0d8f6236d1f9a62bdfad233bc1e089e3e93a04a32ac4f59304d3e9199f7a12df"
+}

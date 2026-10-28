@@ -3,6 +3,7 @@ from pathlib import Path
 import json
 import sys
 import struct
+import math
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
 from common import ROOT, RESULTS, digest, read_json, save_json
 from render_report import lookup
@@ -38,19 +39,26 @@ def run() -> None:
         page.on('request', lambda request: requests.append(request.url) if request.url.startswith(('http:', 'https:')) else None)
         page.on('pageerror', lambda error: errors.append(str(error)))
         page.goto((ROOT / 'report/index.html').as_uri(), wait_until='load')
+        page.evaluate('document.fonts.ready')
         checked = 0
         for item in page.locator('[data-metric]').evaluate_all('(els) => els.map(e => ({path:e.dataset.metric, fmt:e.dataset.format, text:e.textContent}))'):
             require(item['text'] == format(lookup(metrics, item['path']), item['fmt']), f'Wrong displayed value: {item["path"]}')
             checked += 1
+        require(checked > 0, 'Report has no bound metric values to verify')
         embedded = json.loads(page.locator('#report-data').text_content())
         require(embedded['metrics'] == metrics, 'Embedded metrics differ from saved results')
         for index, name in enumerate(['01_storm', '02_scoreboard', '03_diurnal', '04_method'], 1):
             element = page.locator(f'#s{index}')
+            element.scroll_into_view_if_needed()
             rectangle = element.bounding_box()
             output = screens / f'{name}.png'
             element.screenshot(path=str(output), animations='disabled')
             width, height = png_size(output)
-            require(abs(width - rectangle['width'] * 2) <= 2 and abs(height - rectangle['height'] * 2) <= 2, 'Wrong section pixel dimensions')
+            # Browser clips round outward to whole CSS pixels before device scaling.
+            expected_width = (math.ceil(rectangle['x'] + rectangle['width']) - math.floor(rectangle['x'])) * 2
+            expected_height = (math.ceil(rectangle['y'] + rectangle['height']) - math.floor(rectangle['y'])) * 2
+            require(abs(width - expected_width) <= 2 and abs(height - expected_height) <= 2,
+                    f'Wrong section pixel dimensions for {name}: PNG {(width, height)}, CSS {rectangle}')
             captures[output.name] = {'width': width, 'height': height, 'sha256': digest(output)}
         require(page.evaluate('document.documentElement.scrollWidth <= window.innerWidth'), 'Desktop overflow')
         page.set_viewport_size({'width': 390, 'height': 844})
@@ -62,14 +70,20 @@ def run() -> None:
         social_context.route('http://**/*', lambda route: route.abort())
         social_context.route('https://**/*', lambda route: route.abort())
         social = social_context.new_page()
+        social.on('request', lambda request: requests.append(request.url) if request.url.startswith(('http:', 'https:')) else None)
+        social.on('pageerror', lambda error: errors.append(str(error)))
         social.goto((ROOT / 'report/index.html').as_uri(), wait_until='load')
+        social.evaluate('document.fonts.ready')
+        # Isolate the card at an integer origin; section flow can place it on a subpixel.
+        social.locator('#social').evaluate("el => { el.style.position='fixed'; el.style.left='0px'; el.style.top='0px'; el.style.margin='0'; }")
         social.locator('#social').screenshot(path=str(screens / 'social.png'), animations='disabled')
         require(png_size(screens / 'social.png') == (1200, 630), 'Share card must be exactly 1200 by 630')
         captures['social.png'] = {'width': 1200, 'height': 630, 'sha256': digest(screens / 'social.png')}
         require(not requests and not errors, f'Offline/browser check failed: {requests}, {errors}')
         browser.close()
     save_json(RESULTS / 'report_checks.json', {'status': 'passed', 'values_checked': checked,
-              'index_sha256': digest(ROOT / 'report/index.html'), 'metrics_sha256': digest(RESULTS / 'metrics.json'),
+              'index_sha256': digest(ROOT / 'report/index.html'), 'style_sha256': digest(ROOT / 'report/style.css'),
+              'metrics_sha256': digest(RESULTS / 'metrics.json'),
               'desktop_viewport': [1440, 900], 'section_device_scale_factor': 2,
               'mobile_width': 390, 'mobile_no_overflow': True, 'runtime_network_requests': requests,
               'page_errors': errors, 'captures': captures})

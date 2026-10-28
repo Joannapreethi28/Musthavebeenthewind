@@ -1,0 +1,606 @@
+{
+  "schema_version": 1,
+  "contract": "e-only-hour-end-v1",
+  "config": {
+    "model": "lstm",
+    "hidden": 64,
+    "dropout": 0.2,
+    "layers": 2,
+    "window": 72,
+    "horizon": 12,
+    "batch_size": 256,
+    "max_epochs": 60,
+    "patience": 8,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "gradient_clip": 1.0,
+    "shuffle": false,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "representative_seed": 0
+  },
+  "provenance": {
+    "git_commit": "3f2ac7db300a93b909217d4b1682de1eb533cdc0",
+    "source_sha256": {
+      "baselines.py": "5da1ec0929aa232e5f246c3d32abeba317056ca2853b4747f5f557fcdab99d33",
+      "build_dataset.py": "798469dd75c801621185c1a3d081c466cc2975b5ff69d4154403077ef6af0f56",
+      "common.py": "35440a8b9a03a35bc27b1bed16282a92bd8e2b3390c24d8b462b5c79b07f5eef",
+      "data_validation.py": "058f275719cb266a85a8f2803d616afad934227884d071a4c560467651b2ad62",
+      "download_data.py": "5d857e67c9ab471ee3b229dd4abe338e23f12566ff3d061497fe5b90f919545f",
+      "evaluate.py": "ebeb0d0ff78f7fc6d6f3992f3d3d68f6ce8fe061e45ff72454863acc48d9110c",
+      "figures.py": "2334ec1ee23d4a7cd0a1976af67e668ec2f4c67cd340ae069f8c7df712f19539",
+      "models.py": "81d5427e06732e8ad32732e02241d48804a2195d2bc6b936126978b143425213",
+      "render_report.py": "3887e6e57c6bacec71cd85261bca37035e71916f55f4182533469546c308ee86",
+      "train.py": "d6af9555947185bfcc5b756a625ea1940fd50765c525a2dfd30ad635b041a740"
+    },
+    "data_manifest_sha256": "fea9fb33d2c7140703f34b9fee882b2305daa73d523f867c7a0beee7f2d086b0",
+    "dataset_sha256": "1b2a26fddceef1c39bf2ede5a860426b66426c859b822f03e79be9e85854b0cc"
+  },
+  "frozen_experiment_sha256": "7ad7ed5a2d2b63d75169a769493a8b49f09d1f3cedd93d138553b45fb0987062",
+  "meta": {
+    "horizon_hours": 12,
+    "window_hours": 72,
+    "satellite": "GOES-15",
+    "detector": "E2E_COR_FLUX",
+    "train_years": "2012\u20132015",
+    "val_year": 2016,
+    "test_year": 2017,
+    "representative_seed": 0,
+    "seed_count": 3,
+    "authors": [
+      "Jabin Joseph M",
+      "Joanna Preethi J"
+    ],
+    "device": "cpu",
+    "parameter_count": 51777,
+    "units": "log10(electrons / cm\u00b2 / s / sr)"
+  },
+  "split_sizes": {
+    "train": 34020,
+    "val": 8648,
+    "test": 8262
+  },
+  "data_quality": {
+    "contract": "e-only-hour-end-v1",
+    "rows": 52608,
+    "feature_order": [
+      "log_flux",
+      "v_sw",
+      "bz_gsm",
+      "dst_nt",
+      "sin_lt",
+      "cos_lt"
+    ],
+    "observed_flux_coverage": {
+      "2012": 0.9889571948998178,
+      "2013": 0.9993150684931507,
+      "2014": 0.9952054794520548,
+      "2015": 0.9915525114155251,
+      "2016": 0.9960154826958105,
+      "2017": 0.9932648401826484
+    },
+    "floored_hours": 1092,
+    "diurnal_mean_logflux": [
+      1.864770556741539,
+      1.887492228022568,
+      1.933533254704253,
+      2.003961759669899,
+      2.0883691363159596,
+      2.1972820540784546,
+      2.3007539667585317,
+      2.394555706273228,
+      2.473997655156383,
+      2.5320827785282662,
+      2.571202821844883,
+      2.58124105928399,
+      2.566289546706003,
+      2.526323782768608,
+      2.4560782130707803,
+      2.364885100807796,
+      2.2634889664819253,
+      2.159985442648532,
+      2.071338668333125,
+      1.9868364322076388,
+      1.9177458545932906,
+      1.8753453890106244,
+      1.8539813058012717,
+      1.8488796687709745
+    ],
+    "diurnal_amplitude": 0.7323613905130155,
+    "diurnal_peak_bin": 11,
+    "exclusions": {
+      "train": {
+        "candidate_issue_hours": 35063,
+        "target_outside_split": 12,
+        "insufficient_history": 71,
+        "unobserved_anchor": 219,
+        "unobserved_target": 138,
+        "missing_history": 603,
+        "future_interpolation": 0,
+        "accepted": 34020
+      },
+      "val": {
+        "candidate_issue_hours": 8784,
+        "target_outside_split": 12,
+        "insufficient_history": 0,
+        "unobserved_anchor": 35,
+        "unobserved_target": 21,
+        "missing_history": 67,
+        "future_interpolation": 1,
+        "accepted": 8648
+      },
+      "test": {
+        "candidate_issue_hours": 8760,
+        "target_outside_split": 12,
+        "insufficient_history": 0,
+        "unobserved_anchor": 59,
+        "unobserved_target": 40,
+        "missing_history": 387,
+        "future_interpolation": 0,
+        "accepted": 8262
+      }
+    },
+    "normalization": {
+      "mean": [
+        2.1964873677831527,
+        410.1036253173222,
+        -0.08540341670707008,
+        -13.37903202806377
+      ],
+      "std": [
+        1.0538341923446728,
+        88.35447861712048,
+        3.1889259580009655,
+        19.379996208465823
+      ],
+      "fit": "unique train-available hours"
+    },
+    "dst_2015_min": -234.0,
+    "original_probe_thresholds": "Historical E/W thresholds are diagnostic only; E-only, observed labels, causal complete windows define v1.",
+    "data_manifest_sha256": "fea9fb33d2c7140703f34b9fee882b2305daa73d523f867c7a0beee7f2d086b0"
+  },
+  "baseline": {
+    "contract": "e-only-hour-end-v1",
+    "diurnal_means": [
+      0.700442332197957,
+      0.6360074836756479,
+      0.52238417430758,
+      0.36285087635614166,
+      0.1752847775399677,
+      -0.03733509876733319,
+      -0.23163238721171228,
+      -0.41071017713885666,
+      -0.5562566185140758,
+      -0.6547420651150093,
+      -0.7156969839974668,
+      -0.7304045040644368,
+      -0.7007376156020069,
+      -0.6367285844734363,
+      -0.5217710260978969,
+      -0.3621998860065324,
+      -0.1757597333380653,
+      0.03925666742863109,
+      0.23096119045029503,
+      0.4122323466901943,
+      0.5568198294474507,
+      0.6551301713332379,
+      0.7145811061247797,
+      0.7287088020434045
+    ],
+    "diurnal_counts": [
+      1417,
+      1418,
+      1418,
+      1418,
+      1417,
+      1416,
+      1417,
+      1415,
+      1415,
+      1414,
+      1417,
+      1416,
+      1419,
+      1420,
+      1422,
+      1422,
+      1421,
+      1420,
+      1419,
+      1417,
+      1416,
+      1414,
+      1416,
+      1416
+    ],
+    "val": {
+      "persistence": {
+        "pe": 0.3578976842672442,
+        "rmse": 0.9124110349851129,
+        "n": 8648
+      },
+      "persistence_diurnal": {
+        "pe": 0.7065154928283772,
+        "rmse": 0.6168520339655429,
+        "n": 8648
+      }
+    },
+    "historical_val_probe": {
+      "persistence": {
+        "pe": 0.3533261066094563,
+        "rmse": 0.9030792264951207,
+        "n": 8716
+      },
+      "persistence_diurnal": {
+        "pe": 0.7062567042749852,
+        "rmse": 0.6086493599596325,
+        "n": 8716
+      }
+    }
+  },
+  "models": {
+    "persistence": {
+      "val": {
+        "pe": 0.3578976842672442,
+        "rmse": 0.9124110349851129,
+        "n": 8648
+      },
+      "test": {
+        "pe": 0.2899360187489044,
+        "rmse": 0.8644181623342465,
+        "n": 8262
+      }
+    },
+    "persistence_diurnal": {
+      "val": {
+        "pe": 0.7065154928283772,
+        "rmse": 0.6168520339655429,
+        "n": 8648
+      },
+      "test": {
+        "pe": 0.6799208987737074,
+        "rmse": 0.5803684578452455,
+        "n": 8262
+      }
+    },
+    "lstm": {
+      "val": {
+        "seeds": [
+          {
+            "seed": 0,
+            "pe": 0.8456409503357616,
+            "rmse": 0.4473572284169964,
+            "n": 8648
+          },
+          {
+            "seed": 1,
+            "pe": 0.8485481460368693,
+            "rmse": 0.44312444444294263,
+            "n": 8648
+          },
+          {
+            "seed": 2,
+            "pe": 0.8489302773463631,
+            "rmse": 0.4425650631417354,
+            "n": 8648
+          }
+        ],
+        "aggregate": {
+          "pe": {
+            "mean": 0.8477064579063313,
+            "std": 0.001798957261161181
+          },
+          "rmse": {
+            "mean": 0.4443489120005581,
+            "std": 0.002620248577157131
+          }
+        }
+      },
+      "test": {
+        "seeds": [
+          {
+            "seed": 0,
+            "pe": 0.8138460163803498,
+            "rmse": 0.44259989738397937,
+            "n": 8262
+          },
+          {
+            "seed": 1,
+            "pe": 0.8142319032745123,
+            "rmse": 0.44214091686779705,
+            "n": 8262
+          },
+          {
+            "seed": 2,
+            "pe": 0.816497800842087,
+            "rmse": 0.439436147284188,
+            "n": 8262
+          }
+        ],
+        "aggregate": {
+          "pe": {
+            "mean": 0.814858573498983,
+            "std": 0.0014326642612825721
+          },
+          "rmse": {
+            "mean": 0.4413923205119881,
+            "std": 0.0017095689665615275
+          }
+        }
+      }
+    }
+  },
+  "runs": [
+    {
+      "contract": "e-only-hour-end-v1",
+      "seed": 0,
+      "config": {
+        "model": "lstm",
+        "hidden": 64,
+        "dropout": 0.2,
+        "layers": 2,
+        "window": 72,
+        "horizon": 12,
+        "batch_size": 256,
+        "max_epochs": 60,
+        "patience": 8,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "gradient_clip": 1.0,
+        "shuffle": false,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "representative_seed": 0
+      },
+      "normalization": {
+        "mean": [
+          2.1964873677831527,
+          410.1036253173222,
+          -0.08540341670707008,
+          -13.37903202806377
+        ],
+        "std": [
+          1.0538341923446728,
+          88.35447861712048,
+          3.1889259580009655,
+          19.379996208465823
+        ]
+      },
+      "device": "cpu",
+      "torch_version": "2.11.0+cpu",
+      "numpy_version": "2.5.4",
+      "provenance": {
+        "git_commit": "b4c409b4e160f632d1e60b48dc88eb6dbc4bf5b5",
+        "source_sha256": {
+          "baselines.py": "5da1ec0929aa232e5f246c3d32abeba317056ca2853b4747f5f557fcdab99d33",
+          "build_dataset.py": "798469dd75c801621185c1a3d081c466cc2975b5ff69d4154403077ef6af0f56",
+          "common.py": "35440a8b9a03a35bc27b1bed16282a92bd8e2b3390c24d8b462b5c79b07f5eef",
+          "data_validation.py": "058f275719cb266a85a8f2803d616afad934227884d071a4c560467651b2ad62",
+          "download_data.py": "5d857e67c9ab471ee3b229dd4abe338e23f12566ff3d061497fe5b90f919545f",
+          "models.py": "81d5427e06732e8ad32732e02241d48804a2195d2bc6b936126978b143425213",
+          "train.py": "d6af9555947185bfcc5b756a625ea1940fd50765c525a2dfd30ad635b041a740"
+        },
+        "data_manifest_sha256": "fea9fb33d2c7140703f34b9fee882b2305daa73d523f867c7a0beee7f2d086b0",
+        "dataset_sha256": "1b2a26fddceef1c39bf2ede5a860426b66426c859b822f03e79be9e85854b0cc"
+      },
+      "parameter_count": 51777,
+      "initial_val_mse": 0.8719545699563924,
+      "best_val_mse": 0.20012849008335623,
+      "best_epoch": 20,
+      "epochs": 28,
+      "elapsed_seconds": 1115.7309607999632,
+      "checkpoint_sha256": "f4db0d4bacd50d7520f8351deae72cdf00617e07d38a292657b54aa3f2540d52",
+      "checkpoint_reload_exact": true,
+      "deterministic_algorithms": true
+    },
+    {
+      "contract": "e-only-hour-end-v1",
+      "seed": 1,
+      "config": {
+        "model": "lstm",
+        "hidden": 64,
+        "dropout": 0.2,
+        "layers": 2,
+        "window": 72,
+        "horizon": 12,
+        "batch_size": 256,
+        "max_epochs": 60,
+        "patience": 8,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "gradient_clip": 1.0,
+        "shuffle": false,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "representative_seed": 0
+      },
+      "normalization": {
+        "mean": [
+          2.1964873677831527,
+          410.1036253173222,
+          -0.08540341670707008,
+          -13.37903202806377
+        ],
+        "std": [
+          1.0538341923446728,
+          88.35447861712048,
+          3.1889259580009655,
+          19.379996208465823
+        ]
+      },
+      "device": "cpu",
+      "torch_version": "2.11.0+cpu",
+      "numpy_version": "2.5.4",
+      "provenance": {
+        "git_commit": "3f2ac7db300a93b909217d4b1682de1eb533cdc0",
+        "source_sha256": {
+          "baselines.py": "5da1ec0929aa232e5f246c3d32abeba317056ca2853b4747f5f557fcdab99d33",
+          "build_dataset.py": "798469dd75c801621185c1a3d081c466cc2975b5ff69d4154403077ef6af0f56",
+          "common.py": "35440a8b9a03a35bc27b1bed16282a92bd8e2b3390c24d8b462b5c79b07f5eef",
+          "data_validation.py": "058f275719cb266a85a8f2803d616afad934227884d071a4c560467651b2ad62",
+          "download_data.py": "5d857e67c9ab471ee3b229dd4abe338e23f12566ff3d061497fe5b90f919545f",
+          "evaluate.py": "00ed32d8d7ef4d65a96bc5b5b8b49d722bb371e4f9335b8002005d1f65e73671",
+          "figures.py": "4e7d062b7e1f4273572886653ee1446dcc6b9a58c94cc34987682740f38b4530",
+          "models.py": "81d5427e06732e8ad32732e02241d48804a2195d2bc6b936126978b143425213",
+          "render_report.py": "9b2006afcf504e0f1ddd70177fb5df75c782639ddd3a9950ab63c1cd9e00fdd7",
+          "train.py": "d6af9555947185bfcc5b756a625ea1940fd50765c525a2dfd30ad635b041a740"
+        },
+        "data_manifest_sha256": "fea9fb33d2c7140703f34b9fee882b2305daa73d523f867c7a0beee7f2d086b0",
+        "dataset_sha256": "1b2a26fddceef1c39bf2ede5a860426b66426c859b822f03e79be9e85854b0cc"
+      },
+      "parameter_count": 51777,
+      "initial_val_mse": 0.825940758000238,
+      "best_val_mse": 0.19635927358862665,
+      "best_epoch": 30,
+      "epochs": 38,
+      "elapsed_seconds": 1168.158465399989,
+      "checkpoint_sha256": "b60e4a9b8e935f2a1dd9a32077af219e2ca3297508f56e2e25377b0ce194a463",
+      "checkpoint_reload_exact": true,
+      "deterministic_algorithms": true
+    },
+    {
+      "contract": "e-only-hour-end-v1",
+      "seed": 2,
+      "config": {
+        "model": "lstm",
+        "hidden": 64,
+        "dropout": 0.2,
+        "layers": 2,
+        "window": 72,
+        "horizon": 12,
+        "batch_size": 256,
+        "max_epochs": 60,
+        "patience": 8,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "gradient_clip": 1.0,
+        "shuffle": false,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "representative_seed": 0
+      },
+      "normalization": {
+        "mean": [
+          2.1964873677831527,
+          410.1036253173222,
+          -0.08540341670707008,
+          -13.37903202806377
+        ],
+        "std": [
+          1.0538341923446728,
+          88.35447861712048,
+          3.1889259580009655,
+          19.379996208465823
+        ]
+      },
+      "device": "cpu",
+      "torch_version": "2.11.0+cpu",
+      "numpy_version": "2.5.4",
+      "provenance": {
+        "git_commit": "3f2ac7db300a93b909217d4b1682de1eb533cdc0",
+        "source_sha256": {
+          "baselines.py": "5da1ec0929aa232e5f246c3d32abeba317056ca2853b4747f5f557fcdab99d33",
+          "build_dataset.py": "798469dd75c801621185c1a3d081c466cc2975b5ff69d4154403077ef6af0f56",
+          "common.py": "35440a8b9a03a35bc27b1bed16282a92bd8e2b3390c24d8b462b5c79b07f5eef",
+          "data_validation.py": "058f275719cb266a85a8f2803d616afad934227884d071a4c560467651b2ad62",
+          "download_data.py": "5d857e67c9ab471ee3b229dd4abe338e23f12566ff3d061497fe5b90f919545f",
+          "evaluate.py": "00ed32d8d7ef4d65a96bc5b5b8b49d722bb371e4f9335b8002005d1f65e73671",
+          "figures.py": "4e7d062b7e1f4273572886653ee1446dcc6b9a58c94cc34987682740f38b4530",
+          "models.py": "81d5427e06732e8ad32732e02241d48804a2195d2bc6b936126978b143425213",
+          "render_report.py": "9b2006afcf504e0f1ddd70177fb5df75c782639ddd3a9950ab63c1cd9e00fdd7",
+          "train.py": "d6af9555947185bfcc5b756a625ea1940fd50765c525a2dfd30ad635b041a740"
+        },
+        "data_manifest_sha256": "fea9fb33d2c7140703f34b9fee882b2305daa73d523f867c7a0beee7f2d086b0",
+        "dataset_sha256": "1b2a26fddceef1c39bf2ede5a860426b66426c859b822f03e79be9e85854b0cc"
+      },
+      "parameter_count": 51777,
+      "initial_val_mse": 0.8474049812036084,
+      "best_val_mse": 0.1958638353741916,
+      "best_epoch": 30,
+      "epochs": 38,
+      "elapsed_seconds": 1136.8377920999774,
+      "checkpoint_sha256": "fd07cc77f326f201e30d19b9179ad55253e242940039b4c5a099e9e90546973a",
+      "checkpoint_reload_exact": true,
+      "deterministic_algorithms": true
+    }
+  ],
+  "optional_transformer": "Omitted before test evaluation to prioritize the required model and completion time.",
+  "overfit": {
+    "samples": 64,
+    "steps": 200,
+    "mse": 0.007055120076984167,
+    "threshold": 0.01
+  },
+  "historical_test_probe": {
+    "persistence": {
+      "pe": 0.29299216792571936,
+      "rmse": 0.8556130431574047,
+      "n": 8649
+    },
+    "persistence_diurnal": {
+      "pe": 0.6828880351372888,
+      "rmse": 0.5730223986957275,
+      "n": 8649
+    }
+  },
+  "unmodified_historical_probe": {
+    "recipe": "Unmodified reference/probe_baselines.py; historical E/W pairs, including original boundary behavior.",
+    "source_sha256": "f325662e6792053cfa2975eaa15045982a0e61ad0a433e7997c7b5782af3e525",
+    "frozen_experiment_sha256": "7ad7ed5a2d2b63d75169a769493a8b49f09d1f3cedd93d138553b45fb0987062",
+    "stdout": "mean 12h delta by LT hour (train): [0.71, 0.64, 0.53, 0.37, 0.18, -0.04, -0.23, -0.41, -0.56, -0.65, -0.71, -0.74, -0.71, -0.64, -0.53, -0.37, -0.18, 0.03, 0.23, 0.41, 0.56, 0.65, 0.71, 0.73]\nval2016: N=8728  persist PE=0.354 RMSE=0.903  | persist+diurnal PE=0.706 RMSE=0.609\ntest2017: N=8649  persist PE=0.293 RMSE=0.856  | persist+diurnal PE=0.683 RMSE=0.573\n",
+    "splits": {
+      "val2016": {
+        "n": 8728,
+        "persistence": {
+          "pe": 0.354,
+          "rmse": 0.903
+        },
+        "persistence_diurnal": {
+          "pe": 0.706,
+          "rmse": 0.609
+        }
+      },
+      "test2017": {
+        "n": 8649,
+        "persistence": {
+          "pe": 0.293,
+          "rmse": 0.856
+        },
+        "persistence_diurnal": {
+          "pe": 0.683,
+          "rmse": 0.573
+        }
+      }
+    }
+  },
+  "comparison": {
+    "paired_seed_pe_improvement": [
+      0.13392511760664239,
+      0.1343110045008049,
+      0.13657690206837958
+    ],
+    "mean_pe_improvement": 0.13493767472527562,
+    "all_seeds_beat_diurnal": true,
+    "interpretation": "Seed variability measures optimization variability, not statistical significance or uncertainty over future storms."
+  },
+  "checks": {
+    "shared_sample_indices": true,
+    "checkpoint_hashes_match": true,
+    "metrics_recomputed_from_exports": true,
+    "historical_probe_within_tolerance": true,
+    "finite_predictions": true,
+    "test_used_only_after_freeze": true
+  }
+}

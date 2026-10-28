@@ -1,0 +1,30 @@
+{
+  "recipe": "Unmodified reference/probe_baselines.py; historical E/W pairs, including original boundary behavior.",
+  "source_sha256": "f325662e6792053cfa2975eaa15045982a0e61ad0a433e7997c7b5782af3e525",
+  "frozen_experiment_sha256": "7ad7ed5a2d2b63d75169a769493a8b49f09d1f3cedd93d138553b45fb0987062",
+  "stdout": "mean 12h delta by LT hour (train): [0.71, 0.64, 0.53, 0.37, 0.18, -0.04, -0.23, -0.41, -0.56, -0.65, -0.71, -0.74, -0.71, -0.64, -0.53, -0.37, -0.18, 0.03, 0.23, 0.41, 0.56, 0.65, 0.71, 0.73]\nval2016: N=8728  persist PE=0.354 RMSE=0.903  | persist+diurnal PE=0.706 RMSE=0.609\ntest2017: N=8649  persist PE=0.293 RMSE=0.856  | persist+diurnal PE=0.683 RMSE=0.573\n",
+  "splits": {
+    "val2016": {
+      "n": 8728,
+      "persistence": {
+        "pe": 0.354,
+        "rmse": 0.903
+      },
+      "persistence_diurnal": {
+        "pe": 0.706,
+        "rmse": 0.609
+      }
+    },
+    "test2017": {
+      "n": 8649,
+      "persistence": {
+        "pe": 0.293,
+        "rmse": 0.856
+      },
+      "persistence_diurnal": {
+        "pe": 0.683,
+        "rmse": 0.573
+      }
+    }
+  }
+}

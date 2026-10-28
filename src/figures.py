@@ -1,4 +1,7 @@
 """Four scientific figure plates, saved as shareable PNG and offline SVG."""
+import os
+from common import ROOT, RESULTS
+os.environ.setdefault('MPLCONFIGDIR', str(ROOT / '.cache/matplotlib'))
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -6,7 +9,6 @@ import matplotlib.dates as mdates
 from matplotlib.ticker import FuncFormatter, MaxNLocator
 import numpy as np
 import pandas as pd
-from common import RESULTS
 
 PAPER, INK, RED, BLUE, MUTED = '#F3EFE6', '#1B1A17', '#B83216', '#4C5C6B', '#68645C'
 NAMES = {'persistence': 'Persistence', 'persistence_diurnal': 'Persistence + diurnal', 'lstm': 'LSTM'}
@@ -17,7 +19,7 @@ def setup() -> None:
                          'axes.facecolor': PAPER, 'axes.edgecolor': '#CFC8B8', 'text.color': INK,
                          'axes.labelcolor': INK, 'xtick.color': BLUE, 'ytick.color': BLUE,
                          'axes.spines.top': False, 'axes.spines.right': False,
-                         'grid.color': '#CFC8B8', 'grid.linewidth': .5, 'svg.fonttype': 'none',
+                         'grid.color': '#CFC8B8', 'grid.linewidth': .5, 'svg.fonttype': 'path',
                          'savefig.facecolor': PAPER})
 
 
@@ -31,7 +33,7 @@ def save(fig, name: str) -> None:
 
 def flux_axis(axis) -> None:
     axis.yaxis.set_major_locator(MaxNLocator(integer=True))
-    axis.yaxis.set_major_formatter(FuncFormatter(lambda y, pos: rf'$10^{{{int(y)}}}$'))
+    axis.yaxis.set_major_formatter(FuncFormatter(lambda y, pos: rf'$10^{{{y:g}}}$'))
     axis.set_ylabel('Electron flux [e cm⁻² s⁻¹ sr⁻¹]')
 
 
@@ -87,12 +89,12 @@ def render_figures(data: dict) -> None:
     fig, axes = plt.subplots(1, 2, figsize=(10.2, 3.8), layout='constrained')
     lt = np.array(data['diurnal']['lt']) + .5
     axes[0].plot(lt, data['diurnal']['mean_logflux'], color=BLUE, marker='.', lw=1.5)
-    axes[0].set_title('Daily cycle · observed training flux', loc='left', fontsize=12)
+    axes[0].set_title('Daily cycle · geometric mean training flux', loc='left', fontsize=12)
     flux_axis(axes[0])
     for name, color, style in [('persistence', '#999183', ':'), ('persistence_diurnal', BLUE, '--'), ('lstm', RED, '-')]:
         vals = data['diurnal']['err_by_lt'][name]
         axes[1].plot(lt, vals, color=color, ls=style, lw=1.5)
-        axes[1].text(24.1, vals[-1], NAMES[name], color=color, fontsize=8, va='center')
+        axes[1].text(24.1, vals[-1], NAMES[name], color=MUTED if name == 'persistence' else color, fontsize=8, va='center')
     axes[1].set_title('Test error · target local time', loc='left', fontsize=12)
     axes[1].set_ylabel('RMSE [log₁₀ flux] · LSTM seed 0')
     axes[1].set_xlim(0, 37)
