@@ -1,9 +1,14 @@
 data/raw/
-data/processed/
+data/processed/*
+!data/processed/dataset.npz
+!data/processed/hourly.csv
 __pycache__/
 *.pyc
 .venv/
 .ipynb_checkpoints/
 *.pt
-checkpoints/
+checkpoints/*
+!checkpoints/lstm_seed0.pt
+!checkpoints/lstm_seed1.pt
+!checkpoints/lstm_seed2.pt
 .cache/

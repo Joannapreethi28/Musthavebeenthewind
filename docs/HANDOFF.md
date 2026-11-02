@@ -15,7 +15,7 @@ The optional Transformer and tuning grid were omitted before test evaluation to 
 
 ## Local assets and future use
 
-Work from the source/ checkout. The .venv, raw/processed data and all three checkpoints remain local and Git-ignored. Source, download provenance, configs, metrics, predictions, figures, report and screenshots are tracked.
+Work from the source/ checkout, branch joanna. As requested on 2 November 2026, all three frozen checkpoints, data/processed/dataset.npz and data/processed/hourly.csv are now tracked alongside the source, configs, results and report. The .venv, raw archives, caches and additional experimental checkpoints remain local and Git-ignored. See [INFERENCE_HANDOFF.md](INFERENCE_HANDOFF.md) for loading the shared weights and input windows.
 
 To verify the delivered artifacts:
 
@@ -23,8 +23,8 @@ To verify the delivered artifacts:
 .\.venv\Scripts\python.exe scripts/verify_project.py
 ```
 
-This also works in a clean repository copy using an interpreter with the documented dependencies; local raw data and checkpoints are optional for the exported-results audit. The original local checkout additionally verifies every sample's observed labels, causal history, dataset hash and training-statistics invariance.
+This also works in a clean repository copy using an interpreter with the documented dependencies. The included dataset enables the checks of every sample's observed labels, causal history, dataset hash and training-statistics invariance without downloading raw archives. The inference handoff additionally checks the frozen dataset/checkpoint hashes and reproduces seed-zero test predictions.
 
-Do not rerun train.py on the frozen experiment or tune it using the published test result. Follow the README's separate-checkout instructions for a new reproduction. For presentation changes, rerun render_report.py, make_screens.py and verify_project.py, then commit/push the changed artifacts. Keep raw data, environments and checkpoints excluded.
+Do not rerun train.py on the frozen experiment or tune it using the published test result. Follow the README's separate-checkout instructions for a new reproduction. For presentation changes, rerun render_report.py, make_screens.py and verify_project.py, then commit/push the changed artifacts. Keep the shared frozen files intact; raw archives, environments, caches and new experimental checkpoints stay excluded. Full evaluate.py execution includes historical diagnostics requiring the raw archives; inference uses only the included processed data and weights.
 
 The earlier pause occurred after seed 0; resumption reused that verified checkpoint and trained seeds 1 and 2. The primary repository is Joannapreethi28/Musthavebeenthewind, branch joanna. GitHub and headless browser commands may require elevated tool permissions in the managed workspace.

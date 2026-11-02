@@ -20,6 +20,8 @@ PE is on log10 forecast levels (higher is better); RMSE is in log10 flux units (
 
 Run commands from the `source/` checkout in PowerShell. Python and Git must be installed. The current machine uses CPU PyTorch; exact verified dependencies are in `results/setup/requirements.freeze.txt`.
 
+For the existing model/demo, pull branch `joanna`: the frozen seed checkpoints, `data/processed/dataset.npz` and `data/processed/hourly.csv` are included. Follow the [inference handoff](docs/INFERENCE_HANDOFF.md) to load the weights and input windows without downloading data or retraining.
+
 To start a new experiment from a clone that already contains the published results, use a separate checkout and preserve its existing results first:
 
 ```powershell
@@ -43,7 +45,7 @@ python scripts/setup_environment.py
 .\.venv\Scripts\python.exe scripts/verify_project.py
 ```
 
-These are fresh-experiment commands. Training refuses to run after `frozen_experiment.json` exists, protecting the held-out experiment. A completed local checkout can rerun evaluation, rendering and screenshots using its frozen checkpoints. Downloading skips validated files. Raw data, processed arrays, `.venv` and checkpoints are Git-ignored; reproduce them locally using these commands. In an unmodified published checkout, `scripts/verify_project.py` verifies the saved predictions and artifacts without raw data or checkpoints. Exact retraining results can vary across hardware, package releases or archive revisions even with the same seeds. On Linux/macOS use `.venv/bin/python` in place of the Windows interpreter path.
+These are fresh-experiment commands. Training refuses to run after `frozen_experiment.json` exists, protecting the held-out experiment. Full evaluation also runs historical raw-data diagnostics, so download the raw archives before rerunning `evaluate.py`. Downloading skips validated files. Raw data, `.venv`, caches and additional experimental checkpoints remain Git-ignored; the published processed data and three frozen checkpoints are tracked for teammate inference. In an unmodified published checkout, `scripts/verify_project.py` verifies the saved predictions, processed dataset and report artifacts without raw archives. Exact retraining results can vary across hardware, package releases or archive revisions even with the same seeds. On Linux/macOS use `.venv/bin/python` in place of the Windows interpreter path.
 
 Screenshots use installed Microsoft Edge or Chrome when available; otherwise install Playwright Chromium with `.\.venv\Scripts\python.exe -m playwright install chromium`. The HTML opens directly from disk and makes no network requests. The report has no build system or backend.
 

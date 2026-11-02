@@ -4,6 +4,9 @@
 /results/** -text
 /report/** -text
 /README.md -text
+# Keep shared frozen data and weights byte-identical on every platform.
+/data/processed/** -text
+/checkpoints/*.pt binary
 # Matplotlib emits trailing spaces inside SVG path attributes (also embedded in HTML).
 /results/figs/*.svg whitespace=-blank-at-eol,cr-at-eol
 /report/index.html whitespace=-blank-at-eol,cr-at-eol
