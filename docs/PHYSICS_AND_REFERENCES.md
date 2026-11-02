@@ -26,7 +26,7 @@ Forecasting is possible because of the **1–3 day lag** between cause (solar wi
 |---|---|---|
 | Reeves, G. D. et al. (2011) — DOI 10.1029/2010JA015735 | high Vsw is necessary but not sufficient (flux vs Vsw is a triangle, not a line) | ✅ DOI verified |
 | Sun, X. et al. (2024), *J. Space Weather Space Clim.* 14, 25 — DOI 10.1051/swsc/2024021 | LSTM/Transformer for ≥2 MeV GEO flux at 6 h/12 h; Transformer PE 0.828 (6 h), 0.747 (12 h) | ✅ headline numbers; their LSTM 12 h = 0.554 ⚠️ **unconfirmed** — not checked against the paper by anyone here, and the paper is not in the repo |
-| Balikhin, M. A. et al. (2016) — DOI 10.1002/2015SW001303 | REFM vs SNB3GEO daily models; REFM PE −1.31 on raw flux; SNB3GEO PE 0.77 | ✅ |
+| Balikhin, M. A. et al. (2016) — DOI 10.1002/2015SW001303 | REFM vs SNB3GEO daily models. Table 1 PE on **raw flux**: REFM −1.31, SNB3GEO 0.63. Table 1 PE on **log10 flux**: REFM 0.70, SNB3GEO 0.77. Quote a pair from one column; never one value from each. | ✅ DOI verified; column values as recorded in `IMPLEMENTATION_PLAN.md` from the NOAA copy, ⚠️ not re-checked against the paper by anyone here |
 | Forsyth, C. et al. (2020) — DOI 10.1029/2019SW002416 | threshold-based probabilistic warnings (hit rate 56–83 %) | ✅ |
 | Paulikas, G. A. & Blake, J. B. (1979) | original solar-wind-speed vs GEO-flux correlation | ✅ exists; DOI not recorded — look it up before putting in a bibliography |
 
@@ -35,4 +35,5 @@ Forecasting is possible because of the **1–3 day lag** between cause (solar wi
 ## 4. Comparing with prior work — rules
 - Our test set (GOES-15, hourly, 2017) differs from Sun et al.'s data and period; **never** write "we match/beat 0.747". Say "for context, Sun et al. report …".
 - PE definition used here: `1 − Σ(obs−pred)²/Σ(obs−mean obs)²` on log10 flux. Confirm Sun et al.'s exact definition before putting numbers side by side.
+- **Units before numbers.** PE on raw flux and PE on log10 flux are different scales, and Balikhin et al. report both. Our scores are log10 only, so the raw-flux column is not comparable to anything we publish. An earlier draft of the table above quoted REFM's raw-flux −1.31 beside SNB3GEO's log10 0.77, which makes the gap look far larger than Table 1 shows.
 - Our own measured baselines (PLAN §4) are the honest yardstick.
