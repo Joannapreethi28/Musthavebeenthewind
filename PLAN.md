@@ -12,6 +12,7 @@ Satellites at geostationary orbit (GEO, 35,786 km) are damaged by >2 MeV "killer
 ## 2. Scope — basic on purpose
 **IN:** one horizon (12 h) · one satellite (GOES-15) · hourly data · 6 input features · 2 baselines · **LSTM (required)** · Transformer encoder (optional, same pipeline, one flag) · metrics PE + RMSE · 4 figures · a static results page + screenshots · README.
 **OUT (do not add):** other horizons, GRASP/ISRO data, dashboard/backend, extra features, custom losses, sweeps, ablations, probabilistic outputs.
+*Amended after the fact:* the "dashboard/backend" exclusion was relaxed on 2 November 2026 to allow the static, client-side demo pages under `report/demo/`; the original contract above stands otherwise, and the departure and its limits are recorded in [PROTOCOL_AMENDMENTS.md](docs/PROTOCOL_AMENDMENTS.md) ("Scope amendment").
 
 ## 3. Contract
 | Item | Decision |

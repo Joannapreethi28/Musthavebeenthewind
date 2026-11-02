@@ -29,6 +29,10 @@ def seed_all(seed: int) -> None:
 def tensors(data, split: str) -> tuple[torch.Tensor, torch.Tensor]:
     """Materialize only the requested split; 72 historical hours per example."""
     idx = data[split]
+    # windows[idx - 71] would wrap silently to the end of the array for any
+    # index below 71, feeding later years in as history. build_dataset already
+    # excludes those, so this only fails if that rule is ever broken.
+    require(int(idx.min()) >= 71, f'{split} index {int(idx.min())} has less than 72 hours of history')
     windows = np.lib.stride_tricks.sliding_window_view(data['features'], 72, axis=0).transpose(0, 2, 1)
     x = torch.from_numpy(windows[idx - 71].copy())
     y = torch.from_numpy((data['raw'][idx + 12, 0] - data['raw'][idx, 0]).astype('float32'))

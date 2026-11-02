@@ -81,11 +81,19 @@ def run() -> None:
             np.testing.assert_allclose(np.nanmean(filled[fit_mask], axis=0), data['mean'], rtol=0, atol=1e-10)
             np.testing.assert_allclose(np.nanstd(filled[fit_mask], axis=0), data['std'], rtol=0, atol=1e-10)
         checks.append('Every local sample has observed labels and causal complete history; train statistics invariant to future perturbation')
-    save_json(RESULTS / 'acceptance.json', {'status': 'passed', 'checks': checks,
+    record = {'status': 'passed', 'checks': checks,
               'metrics_sha256': digest(RESULTS / 'metrics.json'), 'test_samples': metrics['split_sizes']['test'],
-              'overfit_mse': metrics['overfit']['mse']})
+              'overfit_mse': metrics['overfit']['mse']}
     for check in checks:
         print('PASS', check, flush=True)
+    audit = RESULTS / 'acceptance.json'
+    # A run without local data performs fewer checks, so writing it would quietly weaken the committed audit record.
+    missing = [c for c in read_json(audit)['checks'] if c not in checks] if audit.exists() else []
+    if missing:
+        print('KEPT existing results/acceptance.json: this run omitted', len(missing),
+              'previously recorded check(s), starting with', repr(missing[0]), flush=True)
+        return
+    save_json(audit, record)
 
 
 if __name__ == '__main__':

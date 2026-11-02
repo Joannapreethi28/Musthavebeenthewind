@@ -21,8 +21,12 @@ def read_json(path: Path) -> dict:
 
 
 def digest(path: Path) -> str:
+    """Chunked read instead of hashlib.file_digest so the stated Python 3.10 floor still hashes."""
+    running = hashlib.sha256()
     with path.open('rb') as stream:
-        return hashlib.file_digest(stream, 'sha256').hexdigest()
+        for block in iter(lambda: stream.read(1 << 20), b''):
+            running.update(block)
+    return running.hexdigest()
 
 
 def provenance() -> dict:

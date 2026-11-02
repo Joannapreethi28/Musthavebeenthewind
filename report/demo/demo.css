@@ -1,0 +1,186 @@
+/* Instrument panel in the logbook world of report/style.css.
+   Same paper, ink and signal; denser rhythm, because this surface is operated
+   rather than read. Tokens are duplicated rather than imported so each rendered
+   page stays a single self-contained file that opens from file://. */
+:root {
+  color-scheme: light;
+  --paper: #f3efe6;
+  --card: #efeadf;
+  --ink: #1b1a17;
+  --muted: #555b5d;
+  --rule: #cfc8b8;
+  --rule-soft: #ded7c7;
+  --signal: #b83216;
+  --signal-soft: #f0d9d1;
+  --blue: #4c5c6b;
+  --amber: #8a6a1f;
+  --amber-soft: #f0e5c8;
+  --serif: Georgia, 'Times New Roman', serif;
+  --sans: 'Segoe UI', Arial, sans-serif;
+  --mono: Consolas, 'SF Mono', Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+
+/* Browser surfaces are part of the design; defaults here belong to no system. */
+::selection { background: var(--signal-soft); color: var(--ink); }
+:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; border-radius: 1px; }
+html { scrollbar-color: var(--rule) transparent; }
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-thumb { background: var(--rule); border: 3px solid var(--paper); border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+::-webkit-scrollbar-track { background: transparent; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 16px/1.55 var(--sans);
+  caret-color: var(--signal);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-underline-offset: 4px; }
+a:hover { color: var(--signal); }
+
+.shell { max-width: 1180px; margin: auto; padding: 0 28px; }
+
+.masthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  padding: 24px 0 14px;
+  border-bottom: 2px solid var(--ink);
+}
+.wordmark { font: 600 13px var(--mono); letter-spacing: .12em; }
+.masthead nav { display: flex; gap: 22px; font-size: 12px; font-family: var(--mono); letter-spacing: .06em; }
+.masthead nav a[aria-current='page'] { color: var(--signal); }
+
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.06; margin-top: 0; }
+h1 { font-size: 46px; letter-spacing: -.035em; margin: 26px 0 12px; text-wrap: balance; }
+h2 { font-size: 26px; letter-spacing: -.025em; margin-bottom: 10px; }
+.deck { max-width: 62ch; color: var(--muted); font-size: 17px; margin: 0 0 26px; }
+.label { font: 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+/* ---- panel grid ------------------------------------------------------- */
+.panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 290px;
+  gap: 34px;
+  align-items: start;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--rule);
+}
+.stage { min-width: 0; }
+.stage svg { width: 100%; height: auto; display: block; }
+figcaption { font: 14px/1.5 var(--serif); color: var(--muted); margin: 12px 0 0; }
+
+/* ---- readout ---------------------------------------------------------- */
+.readout { border-top: 1px solid var(--ink); padding-top: 14px; }
+.readout dl { margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 7px 12px; align-items: baseline; }
+.readout dt { font: 12px var(--sans); color: var(--muted); }
+.readout dd { margin: 0; font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 14px; text-align: right; }
+.readout dd.lead { font-size: 29px; letter-spacing: -.045em; color: var(--signal); }
+.readout .row-rule { grid-column: 1 / -1; border-top: 1px solid var(--rule-soft); margin: 4px 0 2px; }
+.swatch { display: inline-block; width: 9px; height: 9px; margin-right: 7px; vertical-align: baseline; }
+.swatch.obs { background: var(--blue); }
+.swatch.model { background: var(--signal); }
+.swatch.base { background: var(--muted); }
+
+/* ---- controls --------------------------------------------------------- */
+.controls { padding: 26px 0 8px; }
+.control-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(232px, 1fr)); gap: 20px 30px; }
+.control { display: grid; gap: 6px; }
+.control-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.control-head output { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 13px; }
+.control-head output.shifted { color: var(--signal); font-weight: 600; }
+
+input[type='range'] {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 22px; margin: 0; background: transparent; cursor: ew-resize;
+}
+input[type='range']::-webkit-slider-runnable-track { height: 2px; background: var(--rule); }
+input[type='range']::-moz-range-track { height: 2px; background: var(--rule); }
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 13px; height: 13px; margin-top: -5.5px; border-radius: 50%;
+  background: var(--paper); border: 2px solid var(--ink);
+}
+input[type='range']::-moz-range-thumb {
+  width: 13px; height: 13px; border-radius: 50%;
+  background: var(--paper); border: 2px solid var(--ink);
+}
+input[type='range']:hover::-webkit-slider-thumb { border-color: var(--signal); }
+input[type='range']:hover::-moz-range-thumb { border-color: var(--signal); }
+
+.scrubber { display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; padding: 18px 0; }
+.scrubber time { font-family: var(--mono); font-size: 14px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.scrubber.info { padding-top: 0; }
+/* The issue/target stamp is the longest fixed string on the page; below this
+   width it must be allowed to wrap or it drags a scrollbar across the layout. */
+@media (max-width: 680px) {
+  .scrubber.info { grid-template-columns: 1fr; gap: 10px; }
+  .scrubber.info time { white-space: normal; font-size: 12.5px; line-height: 1.45; }
+  .scrubber.info span { display: none; }
+  .scrubber.info button { justify-self: start; }
+}
+
+button {
+  font: 12px var(--mono); letter-spacing: .05em;
+  padding: 7px 13px; color: var(--ink); background: transparent;
+  border: 1px solid var(--rule); border-radius: 2px; cursor: pointer;
+}
+button:hover { border-color: var(--ink); }
+button:disabled { color: var(--rule); border-color: var(--rule-soft); cursor: not-allowed; }
+button.primary { border-color: var(--ink); }
+button.primary:hover { background: var(--signal); border-color: var(--signal); color: var(--paper); }
+
+/* The sweep controls need the channel buttons on one line where there is room,
+   and stacked rather than scrolled where there is not. */
+.sweep-controls { grid-template-columns: minmax(300px, 1.4fr) minmax(170px, 1fr) auto; margin-bottom: 8px; }
+@media (max-width: 760px) {
+  .sweep-controls { grid-template-columns: 1fr; gap: 18px; }
+  .sweep-controls .control:last-child button { width: 100%; }
+}
+
+/* ---- honesty guards --------------------------------------------------- */
+/* Off-manifold notice is a first-class state, not a footnote: a scientist
+   dragging an input past anything in the training range must see that the
+   answer is extrapolation before they read the number. */
+.caution {
+  display: grid; grid-template-columns: auto 1fr; gap: 11px;
+  margin-top: 16px; padding: 12px 14px;
+  background: var(--amber-soft); border: 1px solid var(--amber);
+  font-size: 13px; line-height: 1.45;
+}
+.caution[hidden] { display: none; }
+.caution .label { color: var(--amber); }
+.caution svg { width: 17px; height: 17px; margin-top: 1px; }
+
+.footnote { font: 13px/1.6 var(--serif); color: var(--muted); max-width: 70ch; }
+.footnote strong { font-family: var(--sans); font-size: 12px; color: var(--ink); }
+
+footer { padding: 26px 0 44px; font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; gap: 26px; flex-wrap: wrap; }
+.provenance { font-family: var(--mono); font-size: 11px; word-break: break-all; }
+
+/* ---- chart primitives -------------------------------------------------- */
+.grid-line { stroke: var(--rule-soft); stroke-width: 1; }
+.axis-line { stroke: var(--rule); stroke-width: 1; }
+.axis-text { font: 11px var(--mono); fill: var(--muted); }
+.series-obs { fill: none; stroke: var(--blue); stroke-width: 1.6; }
+.series-model { fill: none; stroke: var(--signal); stroke-width: 2; }
+.series-base { fill: none; stroke: var(--muted); stroke-width: 1.2; stroke-dasharray: 4 3; }
+.series-shifted { fill: none; stroke: var(--signal); stroke-width: 1.4; stroke-dasharray: 3 3; opacity: .75; }
+.direct-label { font: 12px var(--mono); }
+.issue-rule { stroke: var(--ink); stroke-width: 1; stroke-dasharray: 2 3; }
+
+@media (max-width: 920px) {
+  .panel { grid-template-columns: 1fr; gap: 22px; }
+  h1 { font-size: 36px; }
+  .shell { padding: 0 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

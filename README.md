@@ -18,7 +18,7 @@ PE is on log10 forecast levels (higher is better); RMSE is in log10 flux units (
 
 ## Reproduce
 
-Run commands from the `source/` checkout in PowerShell. Python and Git must be installed. The current machine uses CPU PyTorch; exact verified dependencies are in `results/setup/requirements.freeze.txt`.
+Run commands from the repository root in PowerShell. Python and Git must be installed. The current machine uses CPU PyTorch; exact verified dependencies are in `results/setup/requirements.freeze.txt`.
 
 For the existing model/demo, pull branch `joanna`: the frozen seed checkpoints, `data/processed/dataset.npz` and `data/processed/hourly.csv` are included. Follow the [inference handoff](docs/INFERENCE_HANDOFF.md) to load the weights and input windows without downloading data or retraining.
 

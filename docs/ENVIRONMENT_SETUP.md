@@ -2,14 +2,14 @@
 
 Step 1 passed on 25 October 2026. The measured package versions, device, and individual checks are recorded in [environment.json](../results/setup/environment.json); the complete dependency snapshot is [requirements.freeze.txt](../results/setup/requirements.freeze.txt).
 
-The working repository is `source/` inside the selected workspace. The working branch is `joanna`. The Git commit author is configured locally from the user's supplied identity. A dry-run push to `origin/joanna` succeeded before publishing the setup changes.
+All commands below are run from the repository root of this checkout. The setup session worked on a feature branch rather than the default branch; its name is no longer recorded here — check the current one with `git branch --show-current`. The Git commit author is configured locally from the user's supplied identity. A dry-run push to that branch's remote succeeded before publishing the setup changes.
 
 This machine reports Intel UHD Graphics. The environment therefore uses CPU PyTorch, which is allowed by the project plan. Python 3.13.15 and the project `.venv` are available. The RTX 5060 mentioned in the initial brief is not in the device listing.
 
-Run this in ordinary Windows PowerShell from any directory:
+Run this in ordinary Windows PowerShell from the repository root:
 
 ```powershell
-python "C:\Users\Jeevan\Documents\Musthavebeenthewind\source\scripts\setup_environment.py"
+python scripts/setup_environment.py
 ```
 
 The script installs torch 2.11.0 from the official PyTorch CPU wheel index, then the remaining dependencies from PyPI. It uses binary wheels with TLS verification enabled and saves pip's installation reports inside `.venv`. The reports retain download URLs and available archive hashes; not every dependency has a hash recorded. The selected CPU build is listed in [PyTorch's official version matrix](https://pytorch.org/get-started/previous-versions/).
@@ -21,7 +21,7 @@ The checks write their actual results to `results/setup/environment.json`. Succe
 To recheck without downloading or installing packages:
 
 ```powershell
-python "C:\Users\Jeevan\Documents\Musthavebeenthewind\source\scripts\setup_environment.py" --check-only
+python scripts/setup_environment.py --check-only
 ```
 
 **Verification outcome.** Dependency compatibility, all six package imports, and all seven LSTM checks passed. The user installed the packages from their own PowerShell because downloads from the agent session failed with Windows socket permission error 10013. The agent then independently reran the checks successfully. GPU availability is false; CPU execution is the accepted configuration. The diagnostic loss is from random synthetic inputs and is not a forecasting result.

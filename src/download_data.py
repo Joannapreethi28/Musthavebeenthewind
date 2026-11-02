@@ -103,8 +103,16 @@ def fetch(url: str, opener, limit: int, destination: Path | None = None) -> tupl
 
 
 def sha256(path: Path) -> str:
+    """Chunked read instead of hashlib.file_digest, which needs Python 3.11+.
+
+    This is the first command in the documented pipeline, so a 3.11-only call
+    here breaks the whole run on the 3.10 floor the setup docs promise.
+    """
+    sha = hashlib.sha256()
     with path.open("rb") as stream:
-        return hashlib.file_digest(stream, "sha256").hexdigest()
+        for block in iter(lambda: stream.read(1 << 20), b""):
+            sha.update(block)
+    return sha.hexdigest()
 
 
 def save_manifest(path: Path, manifest: dict) -> None:

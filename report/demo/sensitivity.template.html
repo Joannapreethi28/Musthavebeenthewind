@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sensitivity · 12-hour GEO electron flux</title>
+<meta name="description" content="Sweep one input across its range and plot how the frozen LSTM's 12-hour forecast responds, averaged over the 2017 test year.">
+<style>/*__DEMO_CSS__*/</style>
+</head>
+<body>
+<div class="shell">
+  <header class="masthead">
+    <span class="wordmark">NNDL · LICET</span>
+    <nav>
+      <a href="../index.html">Research note</a>
+      <a href="index.html">Explorer</a>
+      <a href="sensitivity.html" aria-current="page">Sensitivity</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>What did it actually learn?</h1>
+    <p class="deck">The explorer answers one hour at a time. This page sweeps a single input across its range at many hours at once and plots how the 12-hour forecast responds. It is the closest thing to asking the model what it believes about the solar wind.</p>
+
+    <div class="control-grid sweep-controls">
+      <div class="control">
+        <span class="label">Input to sweep</span>
+        <div id="channel-buttons" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px"></div>
+      </div>
+      <div class="control">
+        <span class="label">Hours sampled</span>
+        <div style="display:flex;gap:8px;align-items:center;margin-top:4px">
+          <input type="range" id="depth" min="20" max="120" step="20" value="60" aria-label="Number of hours sampled">
+          <output id="depth-out" class="num" style="font-size:13px">60</output>
+        </div>
+      </div>
+      <div class="control" style="align-self:end">
+        <button id="run" class="primary" type="button">Compute response</button>
+      </div>
+    </div>
+
+    <section class="panel">
+      <div class="stage">
+        <figure>
+          <div id="chart"></div>
+          <figcaption id="caption">Press <em>Compute response</em>. Each run evaluates the network once per offset per sampled hour, so it takes a moment; the number below the curve says how many forecasts it ran.</figcaption>
+        </figure>
+      </div>
+      <aside class="readout">
+        <dl>
+          <dt id="s-readout-label">Response</dt>
+          <dd class="lead num" id="s-readout">—</dd>
+          <div class="row-rule"></div>
+          <dt>Forecasts evaluated</dt>
+          <dd class="num" id="s-count">—</dd>
+          <dt>Hours sampled</dt>
+          <dd class="num" id="s-hours">—</dd>
+          <dt>Compute time</dt>
+          <dd class="num" id="s-time">—</dd>
+        </dl>
+        <div class="caution" id="caution" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 4.5 2.8 20h18.4Z"/><path d="M12 10v4.2"/><path d="M12 17.2h.01"/></svg>
+          <div>
+            <span class="label">Shaded ends are extrapolation</span>
+            <p style="margin:4px 0 0" id="caution-text"></p>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="controls" style="padding-top:26px">
+      <p class="footnote"><strong>How to read it.</strong> The curve is the median change in the 12-hour forecast, in log₁₀ flux units, when that input is shifted by the amount on the horizontal axis across the whole 72-hour history. The band is the interquartile range across sampled hours. A wide band means the model's response depends heavily on the situation, which is itself a finding.</p>
+      <p class="footnote" style="margin-top:12px"><strong>What it is not.</strong> This is the model's response surface, not the magnetosphere's. A flat curve means this network barely uses that channel; it does not mean the channel is physically unimportant. Hours are sampled evenly across 2017, not chosen.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>Jabin Joseph M · Joanna Preethi J — B.Tech AI &amp; Data Science, LICET</span>
+    <span class="provenance" id="provenance"></span>
+  </footer>
+</div>
+
+<script>
+/*__LSTM_JS__*/
+/*__RUNTIME_JS__*/
+const MODEL = /*__MODEL_JSON__*/;
+const SERIES = /*__SERIES_JSON__*/;
+
+const data = loadSeries(SERIES);
+const forecaster = buildForecaster(MODEL);
+const $ = (id) => document.getElementById(id);
+
+const SWEEPS = [
+  { channel: 0, label: 'Electron flux', unit: 'log₁₀', bound: 1.0, tick: (v) => v.toFixed(1) },
+  { channel: 1, label: 'Wind speed', unit: 'km/s', bound: 250, tick: (v) => v.toFixed(0) },
+  { channel: 2, label: 'IMF Bz', unit: 'nT', bound: 15, tick: (v) => v.toFixed(0) },
+  { channel: 3, label: 'Dst', unit: 'nT', bound: 100, tick: (v) => v.toFixed(0) },
+];
+const STEPS = 21;
+
+let active = 1;
+let depth = 60;
+let busy = false;
+
+/* ---- sweep -------------------------------------------------------------- */
+/** Evenly spaced hours across the test year: deterministic, and stated on the page. */
+function sampleRows(count) {
+  const rows = [];
+  for (let i = 0; i < count; i += 1) {
+    rows.push(data.rows[Math.floor((i + 0.5) * data.rows.length / count)]);
+  }
+  return rows;
+}
+
+/**
+ * Run the sweep in animation-frame slices so the button can show progress
+ * instead of the tab locking up; at 60 hours this is thousands of forward
+ * passes and a frozen page would read as a broken one.
+ */
+function sweep(spec, rows, onDone) {
+  const offsets = [];
+  for (let s = 0; s < STEPS; s += 1) offsets.push(-spec.bound + (2 * spec.bound * s) / (STEPS - 1));
+  const zero = (STEPS - 1) / 2;
+  const columns = offsets.map(() => []);
+  const started = performance.now();
+  let evaluated = 0;
+  let index = 0;
+
+  function chunk() {
+    const until = performance.now() + 24;
+    while (index < rows.length && performance.now() < until) {
+      const row = rows[index];
+      const shift = [0, 0, 0, 0];
+      const base = forecastAt(data, forecaster, row, shift).level;
+      for (let s = 0; s < STEPS; s += 1) {
+        shift[spec.channel] = offsets[s];
+        columns[s].push(forecastAt(data, forecaster, row, shift).level - base);
+        evaluated += 1;
+      }
+      evaluated += 1;
+      index += 1;
+    }
+    $('run').textContent = `Computing ${Math.round((index / rows.length) * 100)}%`;
+    if (index < rows.length) { requestAnimationFrame(chunk); return; }
+    onDone({ offsets, columns, zero, evaluated, elapsed: performance.now() - started });
+  }
+  requestAnimationFrame(chunk);
+}
+
+const quantile = (sorted, q) => {
+  const pos = (sorted.length - 1) * q;
+  const low = Math.floor(pos);
+  return sorted[low] + (sorted[Math.min(low + 1, sorted.length - 1)] - sorted[low]) * (pos - low);
+};
+
+/* ---- chart -------------------------------------------------------------- */
+// top padding leaves a clear band for the axis title above the highest tick
+const W = 920, H = 372, PAD = { top: 38, right: 26, bottom: 46, left: 70 };
+
+function draw(spec, result) {
+  const stats = result.columns.map((column) => {
+    const sorted = [...column].sort((a, b) => a - b);
+    return { lo: quantile(sorted, 0.25), mid: quantile(sorted, 0.5), hi: quantile(sorted, 0.75) };
+  });
+  const values = stats.flatMap((s) => [s.lo, s.hi]);
+  let lo = Math.min(...values, 0), hi = Math.max(...values, 0);
+  const pad = Math.max(0.02, (hi - lo) * 0.16);
+  lo -= pad; hi += pad;
+
+  const x = (v) => PAD.left + ((v + spec.bound) / (2 * spec.bound)) * (W - PAD.left - PAD.right);
+  const y = (v) => PAD.top + (1 - (v - lo) / (hi - lo)) * (H - PAD.top - PAD.bottom);
+
+  let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Forecast response to ${spec.label}">`;
+
+  // Extrapolation shading: offsets that push the median hour past anything the
+  // training years contained.
+  const stat = data.trainStats[spec.channel];
+  const median = stat.p50;
+  const lowLimit = stat.min - median;
+  const highLimit = stat.max - median;
+  if (-spec.bound < lowLimit) {
+    svg += `<rect x="${x(-spec.bound).toFixed(1)}" y="${PAD.top}" width="${(x(lowLimit) - x(-spec.bound)).toFixed(1)}" height="${H - PAD.top - PAD.bottom}" fill="var(--amber-soft)" opacity=".55"/>`;
+  }
+  if (spec.bound > highLimit) {
+    svg += `<rect x="${x(highLimit).toFixed(1)}" y="${PAD.top}" width="${(x(spec.bound) - x(highLimit)).toFixed(1)}" height="${H - PAD.top - PAD.bottom}" fill="var(--amber-soft)" opacity=".55"/>`;
+  }
+
+  for (let t = 0; t <= 4; t += 1) {
+    const value = lo + ((hi - lo) * t) / 4;
+    svg += `<line class="grid-line" x1="${PAD.left}" x2="${W - PAD.right}" y1="${y(value).toFixed(1)}" y2="${y(value).toFixed(1)}"/>`;
+    svg += `<text class="axis-text" x="${PAD.left - 10}" y="${(y(value) + 4).toFixed(1)}" text-anchor="end">${value >= 0 ? '+' : ''}${value.toFixed(2)}</text>`;
+  }
+  svg += `<line class="axis-line" x1="${PAD.left}" x2="${W - PAD.right}" y1="${y(0).toFixed(1)}" y2="${y(0).toFixed(1)}"/>`;
+  svg += `<line class="issue-rule" x1="${x(0).toFixed(1)}" x2="${x(0).toFixed(1)}" y1="${PAD.top}" y2="${H - PAD.bottom}"/>`;
+
+  for (let s = 0; s < STEPS; s += 5) {
+    const value = result.offsets[s];
+    svg += `<text class="axis-text" x="${x(value).toFixed(1)}" y="${H - PAD.bottom + 19}" text-anchor="middle">${value > 0 ? '+' : ''}${spec.tick(value)}</text>`;
+  }
+  svg += `<text class="axis-text" x="${((PAD.left + W - PAD.right) / 2).toFixed(1)}" y="${H - 8}" text-anchor="middle">shift applied to ${spec.label.toLowerCase()} (${spec.unit})</text>`;
+  svg += `<text class="axis-text" x="${PAD.left - 10}" y="16" text-anchor="end">Δ forecast</text>`;
+  svg += `<text class="axis-text" x="${PAD.left + 6}" y="16">log₁₀ flux, median across sampled hours</text>`;
+
+  const band = result.offsets.map((v, s) => `${x(v).toFixed(1)} ${y(stats[s].hi).toFixed(1)}`)
+    .concat(result.offsets.map((v, s) => `${x(v).toFixed(1)} ${y(stats[s].lo).toFixed(1)}`).reverse());
+  svg += `<path d="M${band.join(' L')} Z" fill="var(--signal)" opacity=".13"/>`;
+
+  let d = '';
+  result.offsets.forEach((v, s) => { d += (s ? 'L' : 'M') + x(v).toFixed(1) + ' ' + y(stats[s].mid).toFixed(1) + ' '; });
+  svg += `<path class="series-model" d="${d.trim()}"/>`;
+  svg += `<circle cx="${x(0).toFixed(1)}" cy="${y(stats[result.zero].mid).toFixed(1)}" r="4" fill="var(--ink)"/>`;
+  svg += '</svg>';
+
+  // Slope per physical unit, measured across the middle of the range where the
+  // model is on firm ground.
+  const span = result.offsets[STEPS - 2] - result.offsets[1];
+  const slope = (stats[STEPS - 2].mid - stats[1].mid) / span;
+  return { svg, slope, stats };
+}
+
+/* ---- render ------------------------------------------------------------- */
+function renderButtons() {
+  $('channel-buttons').innerHTML = SWEEPS.map((s) =>
+    `<button type="button" data-channel="${s.channel}"${s.channel === active ? ' class="primary"' : ''}>${s.label}</button>`).join('');
+  $('channel-buttons').querySelectorAll('button').forEach((button) => {
+    button.addEventListener('click', () => {
+      active = Number(button.dataset.channel);
+      renderButtons();
+      $('chart').innerHTML = '';
+      $('caption').textContent = `Ready to sweep ${SWEEPS[active].label.toLowerCase()}. Press Compute response.`;
+      $('s-readout').textContent = '—';
+      $('caution').hidden = true;
+    });
+  });
+}
+
+function run() {
+  if (busy) return;
+  busy = true;
+  const spec = SWEEPS[active];
+  $('run').disabled = true;
+  sweep(spec, sampleRows(depth), (result) => {
+    const { svg, slope, stats } = draw(spec, result);
+    $('chart').innerHTML = svg;
+    const perUnit = spec.channel === 0 ? slope : slope * (spec.channel === 1 ? 100 : 10);
+    const unitLabel = spec.channel === 0 ? 'per log₁₀' : (spec.channel === 1 ? 'per 100 km/s' : 'per 10 nT');
+    $('s-readout-label').textContent = 'Response ' + unitLabel;
+    $('s-readout').textContent = (perUnit >= 0 ? '+' : '') + perUnit.toFixed(3);
+    $('s-count').textContent = result.evaluated.toLocaleString();
+    $('s-hours').textContent = String(depth);
+    $('s-time').textContent = (result.elapsed / 1000).toFixed(1) + ' s';
+    $('caption').textContent = `Median change in the 12-hour forecast across ${depth} hours of 2017, ${unitLabel}: ${(perUnit >= 0 ? '+' : '') + perUnit.toFixed(3)} log₁₀. Band is the interquartile range; the dot marks the unperturbed forecast.`;
+
+    const stat = data.trainStats[spec.channel];
+    const beyond = spec.bound > (stat.max - stat.p50) || -spec.bound < (stat.min - stat.p50);
+    $('caution').hidden = !beyond;
+    if (beyond) {
+      $('caution-text').textContent = `Training ${spec.label.toLowerCase()} ran from ${stat.min.toFixed(1)} to ${stat.max.toFixed(1)} ${spec.unit}. Shifts reaching outside that span move the inputs where the model has no evidence, so the curve's ends describe the network, not the physics.`;
+    }
+    $('run').textContent = 'Compute response';
+    $('run').disabled = false;
+    busy = false;
+  });
+}
+
+$('run').addEventListener('click', run);
+$('depth').addEventListener('input', (event) => { depth = Number(event.target.value); $('depth-out').textContent = String(depth); });
+$('provenance').textContent = 'seed 0 · checkpoint ' + MODEL.provenance.checkpoint_sha256.slice(0, 12) + ' · dataset ' + SERIES.provenance.dataset_sha256.slice(0, 12);
+
+renderButtons();
+run();
+</script>
+</body>
+</html>

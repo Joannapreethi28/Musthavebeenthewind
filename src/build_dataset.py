@@ -6,6 +6,7 @@ from common import ROOT, RESULTS, CONTRACT, digest, read_json, save_json
 from data_validation import require
 
 CHANNELS = ['log_flux', 'v_sw', 'bz_gsm', 'dst_nt']
+LON_WEST = 135.5  # fixed station longitude; the file's own field is fill for whole years
 PERIODS = {'train': ('2012', '2016'), 'val': ('2016', '2017'), 'test': ('2017', '2018')}
 
 
@@ -68,6 +69,16 @@ def sample_indices(raw: np.ndarray, filled: np.ndarray, available: np.ndarray,
     return indices, counts
 
 
+def local_time(n_hours: int) -> np.ndarray:
+    """Local solar time at the satellite, centred on each UTC hour.
+
+    Named rather than inlined because it drives both sin/cos features and every
+    diurnal bin: a sign slip here silently rotates the whole day-night cycle and
+    nothing downstream would look wrong.
+    """
+    return ((np.arange(n_hours) % 24) + .5 - LON_WEST / 15) % 24
+
+
 def run() -> dict:
     manifest = read_json(RESULTS / 'data_manifest.json')
     require(manifest['status'] == 'complete', 'Download gate has not passed')
@@ -96,7 +107,7 @@ def run() -> dict:
     train_hours = (issue >= np.datetime64('2012')) & (issue < np.datetime64('2016'))
     mean, std = np.nanmean(filled[train_hours], axis=0), np.nanstd(filled[train_hours], axis=0)
     require(np.isfinite(mean).all() and (std > 0).all(), 'Invalid train normalization')
-    lt = ((np.arange(len(times)) % 24) + .5 - 135.5 / 15) % 24
+    lt = local_time(len(times))
     features = np.column_stack([(filled - mean) / std, np.sin(2 * np.pi * lt / 24), np.cos(2 * np.pi * lt / 24)]).astype('float32')
     folder = ROOT / 'data/processed'
     folder.mkdir(parents=True, exist_ok=True)

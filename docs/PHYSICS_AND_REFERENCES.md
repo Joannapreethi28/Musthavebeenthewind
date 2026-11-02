@@ -1,6 +1,6 @@
 # PHYSICS_AND_REFERENCES.md — what the students must understand, and what may be cited
 
-> Production bibliography additions and corrections are documented in [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) and [PROTOCOL_AMENDMENTS.md](PROTOCOL_AMENDMENTS.md). Rodriguez et al. (2025), DOI 10.1029/2024SW004228, and Baker et al. (2019), DOI 10.1029/2019JA027331, are included for the E-only detector decision. The planning review confirmed Sun et al.'s twelve-hour LSTM PE of 0.554 and distinguished Balikhin et al.'s raw-flux from log-flux metrics. Those literature scores are context only; final comparisons use our own measured baselines.
+> Production bibliography additions and corrections are documented in [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) and [PROTOCOL_AMENDMENTS.md](PROTOCOL_AMENDMENTS.md). Rodriguez et al. (2025), DOI 10.1029/2024SW004228, and Baker et al. (2019), DOI 10.1029/2019JA027331, are included for the E-only detector decision. Sun et al.'s twelve-hour LSTM PE of 0.554 stays **unconfirmed**: nobody on this project has read that figure in the paper, and no copy of it is in the repo, so the table below is the authority. The planning review did distinguish Balikhin et al.'s raw-flux from log-flux metrics. Those literature scores are context only; final comparisons use our own measured baselines.
 
 ## 1. The causal chain (one screen)
 ```
@@ -25,7 +25,7 @@ Forecasting is possible because of the **1–3 day lag** between cause (solar wi
 | Ref | Use | Status |
 |---|---|---|
 | Reeves, G. D. et al. (2011) — DOI 10.1029/2010JA015735 | high Vsw is necessary but not sufficient (flux vs Vsw is a triangle, not a line) | ✅ DOI verified |
-| Sun, X. et al. (2024), *J. Space Weather Space Clim.* 14, 25 — DOI 10.1051/swsc/2024021 | LSTM/Transformer for ≥2 MeV GEO flux at 6 h/12 h; Transformer PE 0.828 (6 h), 0.747 (12 h) | ✅ headline numbers; their LSTM 12 h = 0.554 ⚠️ unconfirmed |
+| Sun, X. et al. (2024), *J. Space Weather Space Clim.* 14, 25 — DOI 10.1051/swsc/2024021 | LSTM/Transformer for ≥2 MeV GEO flux at 6 h/12 h; Transformer PE 0.828 (6 h), 0.747 (12 h) | ✅ headline numbers; their LSTM 12 h = 0.554 ⚠️ **unconfirmed** — not checked against the paper by anyone here, and the paper is not in the repo |
 | Balikhin, M. A. et al. (2016) — DOI 10.1002/2015SW001303 | REFM vs SNB3GEO daily models; REFM PE −1.31 on raw flux; SNB3GEO PE 0.77 | ✅ |
 | Forsyth, C. et al. (2020) — DOI 10.1029/2019SW002416 | threshold-based probabilistic warnings (hit rate 56–83 %) | ✅ |
 | Paulikas, G. A. & Blake, J. B. (1979) | original solar-wind-speed vs GEO-flux correlation | ✅ exists; DOI not recorded — look it up before putting in a bibliography |

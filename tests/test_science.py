@@ -5,7 +5,7 @@ import tempfile
 import unittest
 import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
-from build_dataset import hourly_flux, fill_short_gaps, sample_indices
+from build_dataset import hourly_flux, fill_short_gaps, sample_indices, local_time
 from baselines import scores, fit_diurnal
 from data_validation import validate_omni, validate_goes
 from scipy.io import netcdf_file
@@ -74,11 +74,46 @@ class ScienceTests(unittest.TestCase):
         observed = np.array([0., 1., 2.])
         self.assertEqual(scores(observed, observed)['pe'], 1.)
         self.assertEqual(scores(observed, np.ones(3))['pe'], 0.)
+        # Both cases above are degenerate in the denominator: the first has zero
+        # error and the second has predicted.mean() == observed.mean(), so they
+        # pass whatever climatology the denominator uses. This one does not --
+        # PE = 1 - 3/2 only if the denominator is the OBSERVED variance.
+        self.assertAlmostEqual(scores(observed, observed + 1)['pe'], -0.5)
         self.assertAlmostEqual(scores(observed, np.ones(3))['rmse'], np.sqrt(2 / 3))
         with self.assertRaises(ValueError):
             scores(np.ones(3), np.ones(3))
         with self.assertRaises(ValueError):
             scores(observed, np.array([0, np.nan, 2]))
+
+    def test_local_time_offset_and_wrap(self):
+        """A sign slip on the longitude term would rotate every diurnal bin."""
+        lt = local_time(48)
+        self.assertAlmostEqual(lt[0], (0.5 - 135.5 / 15) % 24, places=9)
+        self.assertAlmostEqual(lt[0], 15.4666667, places=5)  # not 9.53: west is negative
+        np.testing.assert_allclose(lt[:24], (lt[0] + np.arange(24)) % 24, atol=1e-9)
+        np.testing.assert_allclose(lt[24:], lt[:24], atol=1e-9)
+        self.assertTrue((lt >= 0).all() and (lt < 24).all())
+
+    def test_sample_guards_history_and_anchor(self):
+        """The two split rules that nothing else would catch if they regressed."""
+        times = np.arange(np.datetime64('2012-01-01T00', 'h'), np.datetime64('2018-01-01T00', 'h'))
+        raw = np.ones((len(times), 4))
+        filled = raw.copy()
+        available = np.broadcast_to(np.arange(len(times))[:, None], raw.shape).copy()
+        accepted, _ = sample_indices(raw, filled, available, times)
+
+        # Below index 71 numpy would wrap a window to the end of the array.
+        for split in ('train', 'val', 'test'):
+            self.assertGreaterEqual(int(accepted[split].min()), 71, split)
+
+        # An anchor that is only known by interpolation must be refused, even
+        # though the filled series is finite there.
+        victim = int(accepted['train'][500])
+        gapped = raw.copy()
+        gapped[victim, 0] = np.nan
+        after, _ = sample_indices(gapped, filled, available, times)
+        self.assertIn(victim, accepted['train'].tolist())
+        self.assertNotIn(victim, after['train'].tolist())
 
     def test_omni_leap_calendar(self):
         with tempfile.TemporaryDirectory() as folder:

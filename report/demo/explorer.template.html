@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Forecast explorer · 12-hour GEO electron flux</title>
+<meta name="description" content="Run the frozen LSTM forecaster in the browser: pick any hour of 2017, perturb the solar-wind inputs, and watch the 12-hour forecast respond.">
+<style>/*__DEMO_CSS__*/</style>
+</head>
+<body>
+<div class="shell">
+  <header class="masthead">
+    <span class="wordmark">NNDL · LICET</span>
+    <nav>
+      <a href="../index.html">Research note</a>
+      <a href="index.html" aria-current="page">Explorer</a>
+      <a href="sensitivity.html">Sensitivity</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Run the forecaster yourself.</h1>
+    <p class="deck">This page executes the frozen seed-0 LSTM in your browser: the same weights that produced the published 2017 score. Pick any hour of the test year, then push the solar wind around and watch the 12-hour forecast respond.</p>
+
+    <div class="scrubber">
+      <button id="prev" type="button" title="Previous hour">◀</button>
+      <input id="scrub" type="range" min="0" step="1" value="0" aria-label="Forecast issue time">
+      <button id="next" type="button" title="Next hour">▶</button>
+    </div>
+    <div class="scrubber info">
+      <time id="issue"></time>
+      <span></span>
+      <button id="storm" type="button">Jump to September storm</button>
+    </div>
+
+    <section class="panel">
+      <div class="stage">
+        <figure>
+          <div id="chart"></div>
+          <figcaption id="chart-caption"></figcaption>
+        </figure>
+      </div>
+      <aside class="readout">
+        <dl>
+          <dt>LSTM forecast</dt>
+          <dd class="lead num" id="r-model">—</dd>
+          <div class="row-rule"></div>
+          <dt><span class="swatch obs"></span>Observed at target</dt>
+          <dd class="num" id="r-obs">—</dd>
+          <dt><span class="swatch base"></span>Persistence + diurnal</dt>
+          <dd class="num" id="r-base">—</dd>
+          <dt>Model error</dt>
+          <dd class="num" id="r-err">—</dd>
+          <div class="row-rule"></div>
+          <dt>Predicted change Δ</dt>
+          <dd class="num" id="r-delta">—</dd>
+          <dt>Flux at issue time</dt>
+          <dd class="num" id="r-anchor">—</dd>
+        </dl>
+        <div class="caution" id="caution" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 4.5 2.8 20h18.4Z"/><path d="M12 10v4.2"/><path d="M12 17.2h.01"/></svg>
+          <div>
+            <span class="label">Outside training range</span>
+            <p id="caution-text" style="margin:4px 0 0"></p>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="controls">
+      <h2>Perturb the inputs</h2>
+      <p class="footnote" style="margin-bottom:18px">Each slider shifts that channel across the whole 72-hour history by a constant amount, then re-runs the model. Zero returns the published forecast exactly.</p>
+      <div class="control-grid" id="controls"></div>
+      <div style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap">
+        <button id="reset" class="primary" type="button">Reset to observed</button>
+      </div>
+    </section>
+
+    <section class="controls" style="border-top:1px solid var(--rule);padding-top:26px">
+      <p class="footnote"><strong>What this is.</strong> A sensitivity probe, not a physical counterfactual. Shifting Bz by a few nT asks “what would this model output if its input had read differently”, which is not the same as asking what the magnetosphere would have done. The model has no physics in it; it has correlations from 2012–2015.</p>
+      <p class="footnote" style="margin-top:12px"><strong>Why some hours are missing.</strong> The scrubber only visits the 8,262 hours of 2017 that passed the causal completeness rules in <code>docs/PROTOCOL_AMENDMENTS.md</code>. Hours with missing inputs, including parts of the September storm, were never scored and are not invented here.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>Jabin Joseph M · Joanna Preethi J — B.Tech AI &amp; Data Science, LICET</span>
+    <span class="provenance" id="provenance"></span>
+  </footer>
+</div>
+
+<script>
+/*__LSTM_JS__*/
+/*__RUNTIME_JS__*/
+const MODEL = /*__MODEL_JSON__*/;
+const SERIES = /*__SERIES_JSON__*/;
+
+const data = loadSeries(SERIES);
+const forecaster = buildForecaster(MODEL);
+const WINDOW = SERIES.window;
+const HORIZON = SERIES.horizonHours;
+const SPAN = WINDOW + HORIZON;
+
+// Slider bounds come from the training spread, so the usable range of a control
+// is the range the model actually learned something in; the extremes are still
+// reachable and still flagged.
+const CONTROLS = [
+  { channel: 0, label: 'Electron flux', unit: 'log₁₀', step: 0.05, bound: 1.5, format: (v) => v.toFixed(2) },
+  { channel: 1, label: 'Solar-wind speed', unit: 'km/s', step: 5, bound: 300, format: (v) => v.toFixed(0) },
+  { channel: 2, label: 'IMF Bz (GSM)', unit: 'nT', step: 0.5, bound: 20, format: (v) => v.toFixed(1) },
+  { channel: 3, label: 'Dst', unit: 'nT', step: 2, bound: 120, format: (v) => v.toFixed(0) },
+];
+
+let offsets = [0, 0, 0, 0];
+let sample = 0;
+
+const $ = (id) => document.getElementById(id);
+const scrub = $('scrub');
+scrub.max = String(data.rows.length - 1);
+
+/* ---- chart ------------------------------------------------------------- */
+const W = 920;
+const H = 330;
+const PAD = { top: 18, right: 112, bottom: 34, left: 58 };
+
+function path(points) {
+  let d = '';
+  let pen = false;
+  for (const [x, y] of points) {
+    if (!Number.isFinite(y)) { pen = false; continue; }
+    d += (pen ? 'L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1) + ' ';
+    pen = true;
+  }
+  return d.trim();
+}
+
+function drawChart(view) {
+  const { row, result, baseline, observed } = view;
+  const first = row - WINDOW + 1;
+
+  const history = [];
+  const shifted = [];
+  const future = [];
+  for (let i = 0; i < SPAN; i += 1) {
+    const r = first + i;
+    const value = data.raw[r * data.channels];
+    if (i < WINDOW) {
+      history.push(value);
+      shifted.push(value + offsets[0]);
+    } else {
+      future.push(value);
+    }
+  }
+
+  const candidates = [...history, ...shifted, ...future, result.level, baseline, observed]
+    .filter((v) => Number.isFinite(v));
+  let lo = Math.min(...candidates);
+  let hi = Math.max(...candidates);
+  const pad = Math.max(0.25, (hi - lo) * 0.14);
+  lo -= pad; hi += pad;
+
+  const x = (i) => PAD.left + (i / (SPAN - 1)) * (W - PAD.left - PAD.right);
+  const y = (v) => PAD.top + (1 - (v - lo) / (hi - lo)) * (H - PAD.top - PAD.bottom);
+
+  let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Flux history and 12-hour forecast">`;
+
+  // y grid at whole decades -- real units, not arbitrary ticks.
+  for (let decade = Math.ceil(lo); decade <= Math.floor(hi); decade += 1) {
+    svg += `<line class="grid-line" x1="${PAD.left}" x2="${W - PAD.right}" y1="${y(decade).toFixed(1)}" y2="${y(decade).toFixed(1)}"/>`;
+    svg += `<text class="axis-text" x="${PAD.left - 9}" y="${(y(decade) + 4).toFixed(1)}" text-anchor="end">10${sup(decade)}</text>`;
+  }
+  svg += `<line class="axis-line" x1="${PAD.left}" x2="${PAD.left}" y1="${PAD.top}" y2="${H - PAD.bottom}"/>`;
+
+  // Ticks are anchored on the issue time so 0 is always labelled; a window that
+  // never names its own origin makes the horizon ambiguous.
+  for (let hours = -60; hours <= HORIZON; hours += 12) {
+    const i = hours + WINDOW - 1;
+    svg += `<text class="axis-text" x="${x(i).toFixed(1)}" y="${H - PAD.bottom + 18}" text-anchor="middle">${hours > 0 ? '+' : ''}${hours}</text>`;
+  }
+  svg += `<text class="axis-text" x="${((PAD.left + W - PAD.right) / 2).toFixed(1)}" y="${H - 3}" text-anchor="middle">hours from issue time</text>`;
+
+  const issueX = x(WINDOW - 1);
+  svg += `<line class="issue-rule" x1="${issueX.toFixed(1)}" x2="${issueX.toFixed(1)}" y1="${PAD.top}" y2="${H - PAD.bottom}"/>`;
+  svg += `<text class="axis-text" x="${(issueX - 6).toFixed(1)}" y="${PAD.top + 11}" text-anchor="end">issue</text>`;
+
+  // observed truth after the issue time, drawn lighter: it is context, not input
+  const futurePoints = [[issueX, y(history[WINDOW - 1])]];
+  for (let i = 0; i < future.length; i += 1) futurePoints.push([x(WINDOW + i), y(future[i])]);
+  svg += `<path class="series-obs" style="opacity:.42" d="${path(futurePoints)}"/>`;
+
+  svg += `<path class="series-obs" d="${path(history.map((v, i) => [x(i), y(v)]))}"/>`;
+  if (offsets[0] !== 0) {
+    svg += `<path class="series-shifted" d="${path(shifted.map((v, i) => [x(i), y(v)]))}"/>`;
+  }
+
+  const targetX = x(SPAN - 1);
+  if (Number.isFinite(baseline)) {
+    svg += `<rect x="${(targetX - 3.5).toFixed(1)}" y="${(y(baseline) - 3.5).toFixed(1)}" width="7" height="7" fill="var(--muted)"/>`;
+  }
+  if (Number.isFinite(observed)) {
+    svg += `<circle cx="${targetX.toFixed(1)}" cy="${y(observed).toFixed(1)}" r="4" fill="var(--blue)"/>`;
+  }
+  svg += `<line class="series-model" x1="${issueX.toFixed(1)}" y1="${y(result.anchor).toFixed(1)}" x2="${targetX.toFixed(1)}" y2="${y(result.level).toFixed(1)}"/>`;
+  svg += `<circle cx="${targetX.toFixed(1)}" cy="${y(result.level).toFixed(1)}" r="5.5" fill="var(--signal)"/>`;
+
+  // direct labels instead of a legend
+  const labels = [
+    { v: result.level, text: 'LSTM', fill: 'var(--signal)' },
+    { v: observed, text: 'observed', fill: 'var(--blue)' },
+    { v: baseline, text: 'baseline', fill: 'var(--muted)' },
+  ].filter((l) => Number.isFinite(l.v)).sort((a, b) => y(a.v) - y(b.v));
+  let lastY = -Infinity;
+  for (const label of labels) {
+    const ly = Math.max(y(label.v) + 4, lastY + 15);
+    lastY = ly;
+    svg += `<text class="direct-label" x="${(targetX + 11).toFixed(1)}" y="${ly.toFixed(1)}" fill="${label.fill}">${label.text}</text>`;
+  }
+
+  svg += '</svg>';
+  return svg;
+}
+
+const SUPERSCRIPT = { '-': '⁻', 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴', 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹' };
+function sup(n) { return String(n).split('').map((c) => SUPERSCRIPT[c] || c).join(''); }
+
+/* ---- channel strips ----------------------------------------------------- */
+function drawStrip(channel) {
+  const row = data.rows[sample];
+  const first = row - WINDOW + 1;
+  const base = [];
+  const moved = [];
+  for (let t = first; t <= row; t += 1) {
+    base.push(physical(data, t, channel));
+    moved.push(physical(data, t, channel, offsets[channel]));
+  }
+  const all = [...base, ...moved].filter(Number.isFinite);
+  let lo = Math.min(...all);
+  let hi = Math.max(...all);
+  if (hi - lo < 1e-6) { hi += 1; lo -= 1; }
+  const pad = (hi - lo) * 0.16;
+  lo -= pad; hi += pad;
+  const w = 260;
+  const h = 54;
+  const x = (i) => (i / (WINDOW - 1)) * w;
+  const y = (v) => h - ((v - lo) / (hi - lo)) * h;
+  let svg = `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" style="height:54px" aria-hidden="true">`;
+  svg += `<path class="series-obs" style="stroke-width:1.3" d="${path(base.map((v, i) => [x(i), y(v)]))}"/>`;
+  if (offsets[channel] !== 0) {
+    svg += `<path class="series-shifted" d="${path(moved.map((v, i) => [x(i), y(v)]))}"/>`;
+  }
+  svg += '</svg>';
+  return svg;
+}
+
+/* ---- controls ----------------------------------------------------------- */
+function buildControls() {
+  $('controls').innerHTML = CONTROLS.map((c) => `
+    <div class="control">
+      <div class="control-head">
+        <span class="label">${c.label}</span>
+        <output id="out-${c.channel}">0 ${c.unit}</output>
+      </div>
+      <div id="strip-${c.channel}"></div>
+      <input type="range" id="slider-${c.channel}" min="${-c.bound}" max="${c.bound}" step="${c.step}" value="0"
+             aria-label="Shift ${c.label}">
+    </div>`).join('');
+  for (const c of CONTROLS) {
+    $(`slider-${c.channel}`).addEventListener('input', (event) => {
+      offsets[c.channel] = Number(event.target.value);
+      render();
+    });
+  }
+}
+
+/* ---- render ------------------------------------------------------------- */
+function render() {
+  const row = data.rows[sample];
+  const result = forecastAt(data, forecaster, row, offsets);
+  const observed = data.obs[sample];
+  const baseline = data.persistenceDiurnal[sample];
+
+  $('chart').innerHTML = drawChart({ row, result, baseline, observed });
+  $('issue').textContent = 'Issued ' + formatUtc(rowTime(data, row + 1)) + ' · target ' + formatUtc(rowTime(data, row + 1 + HORIZON));
+
+  const moved = offsets.some((o) => o !== 0);
+  $('r-model').textContent = result.level.toFixed(3);
+  $('r-obs').textContent = moved ? '—' : observed.toFixed(3);
+  $('r-base').textContent = moved ? '—' : baseline.toFixed(3);
+  $('r-err').textContent = moved ? '—' : (result.level - observed >= 0 ? '+' : '') + (result.level - observed).toFixed(3);
+  $('r-delta').textContent = (result.delta >= 0 ? '+' : '') + result.delta.toFixed(3);
+  $('r-anchor').textContent = result.anchor.toFixed(3);
+
+  $('chart-caption').textContent = moved
+    ? 'Dashed red shows the perturbed input history. Observed and baseline values are hidden because they describe the real hour, which you have changed.'
+    : 'Blue is observed flux; faint blue after the issue line is what actually happened. Red is the 12-hour LSTM forecast; grey square is persistence + diurnal.';
+
+  for (const c of CONTROLS) {
+    const out = $(`out-${c.channel}`);
+    const value = offsets[c.channel];
+    out.textContent = (value > 0 ? '+' : '') + c.format(value) + ' ' + c.unit;
+    out.classList.toggle('shifted', value !== 0);
+    $(`strip-${c.channel}`).innerHTML = drawStrip(c.channel);
+  }
+
+  const flagged = offManifold(data, row, offsets);
+  const caution = $('caution');
+  caution.hidden = flagged.length === 0;
+  if (flagged.length) {
+    $('caution-text').textContent = flagged.map((f) => {
+      const name = CHANNEL_LABELS[f.channel];
+      const unit = f.channel === 0 ? '' : ' ' + CHANNEL_UNITS[f.channel];
+      const below = f.low < f.stats.min;
+      return `${name} reaches ${(below ? f.low : f.high).toFixed(1)}${unit}, past the training ${below ? 'minimum' : 'maximum'} of ${(below ? f.stats.min : f.stats.max).toFixed(1)}${unit}.`;
+    }).join(' ') + ' The model is extrapolating; treat the forecast as unsupported.';
+  }
+
+  $('reset').disabled = !moved;
+}
+
+/* ---- wiring ------------------------------------------------------------- */
+scrub.addEventListener('input', (event) => { sample = Number(event.target.value); render(); });
+$('prev').addEventListener('click', () => { sample = Math.max(0, sample - 1); scrub.value = sample; render(); });
+$('next').addEventListener('click', () => { sample = Math.min(data.rows.length - 1, sample + 1); scrub.value = sample; render(); });
+$('reset').addEventListener('click', () => {
+  offsets = [0, 0, 0, 0];
+  for (const c of CONTROLS) $(`slider-${c.channel}`).value = '0';
+  render();
+});
+$('storm').addEventListener('click', () => {
+  // 2017-09-08 00:00 UTC issue time, inside the largest storm of the test year.
+  const target = Date.UTC(2017, 8, 8, 0) ;
+  let best = 0;
+  let bestGap = Infinity;
+  for (let i = 0; i < data.rows.length; i += 1) {
+    const gap = Math.abs(rowTime(data, data.rows[i] + 1).getTime() - target);
+    if (gap < bestGap) { bestGap = gap; best = i; }
+  }
+  sample = best;
+  scrub.value = sample;
+  render();
+});
+
+$('provenance').textContent = 'seed 0 · checkpoint ' + MODEL.provenance.checkpoint_sha256.slice(0, 12) + ' · dataset ' + SERIES.provenance.dataset_sha256.slice(0, 12);
+
+buildControls();
+// Open on the first scorable hour of the test year. Opening on the storm would
+// show the model at its worst, which is as much a cherry-pick as opening on its
+// best hour; the storm stays one click away.
+render();
+</script>
+</body>
+</html>
